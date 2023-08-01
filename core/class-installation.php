@@ -24,15 +24,42 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
 
             $installplugin = $params['plugin'];
 
-            $allplugins = $params['allPlugins'][0];
-            $theme = $params['themeSlug'];
+            $allplugins         = $params['allPlugins'][0];     //  all plugin slug
+            $theme_slug          = $params['themeSlug'];         //  plugin slug
+            $proThemePlugin     = $params['proThemePlugin'];    //  free or pro theme plugin name
+            $templateType       = $params['templateType'];      //  template type free or pro
+            $tmplFreePro        = $params['tmplFreePro'];       // pro template type theme or plugin
 
-            self::theme_install($theme);
-            self::plugin_install($installplugin,$allplugins);
+
+
+            if($tmplFreePro==='theme'){
+
+            } elseif($tmplFreePro==='plugin'){
+
+            }
+
+            $installType = 'wp';
+           if($templateType==='free'){
+            $installplugin[$proThemePlugin]='Themehunk Plugins';
+
+           }elseif($templateType==='paid' && $tmplFreePro==='theme'){
+               // $theme_slug = $proThemePlugin;
+               $installType= 'server';
+
+           }elseif($templateType==='paid' && $tmplFreePro==='plugin'){
+
+           // $installplugin[$proThemePlugin]='Premium Plugins';
+              $installType= 'server';
+           }
+
+
+           self::theme_install($theme_slug,$templateType);
+           self::plugin_install($installplugin,$allplugins,$templateType);
+
         }
 
 
-        static public function plugin_install($plugin,$allplugins){
+        static public function plugin_install($plugin,$allplugins,$templateType){
 
             foreach($plugin as $slug => $value){
 
@@ -49,7 +76,7 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
 
                 }else{
                     //plugin install and acitvation code
-                    self::init_plugin($slug,$init);
+                    self::init_plugin($slug,$init,$templateType);
 
                 }
                 
@@ -57,7 +84,7 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
 
         }
 
-        static public function theme_install($theme_slug){
+        static public function theme_install($theme_slug,$templateType){
 
             if(get_option( 'template' )===$theme_slug) return 1;
             $installed_themes = wp_get_themes();
@@ -71,7 +98,7 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
                 return 2;
 
                 } else {
-                self::init_theme($theme_slug);
+                self::init_theme($theme_slug,$templateType);
 
                return 3;
             }
@@ -121,7 +148,7 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
         /**
 		 * Theme init
 		 */
-		static public function init_theme($theme_slug) {
+		static public function init_theme($theme_slug,$templateType) {
 
 
                 // If the function it's not available, require it.
@@ -169,7 +196,7 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
            /**
 		 * Theme init
 		 */
-		static public function init_plugin($slug,$init) {
+		static public function init_plugin($slug,$init,$templateType) {
 
             
             // If the function it's not available, require it.

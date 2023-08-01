@@ -24,7 +24,7 @@ export default function sidebarInstall(props) {
   const [ apiUrl, setApiUrl ] = useState(null);
 
 const handelClose = ()=>{
-  dispatch(addTrueFalse(false));
+     dispatch(addTrueFalse(false));
     console.log(props.templateData);
     var modalImg = document.getElementById("iframetmpl");
     var modal = document.getElementById("myModal");
@@ -34,35 +34,6 @@ const handelClose = ()=>{
     urlReset();
     window.location.reload(); 
 }
-
-const handelInstall = async () =>{
-
-
-    try {
-        await axios.post(AISB.baseurl+'wp-json/ai/v1/ai-site-builder', {
-            params: {
-              plugin: props.templateData.plugin,
-              allPlugins:wpPlugins,
-              theme:props.templateData.builder_theme
-            }
-          })
-          .then(function (response) {
-            console.log(response.data);
-            console.log('----------------- theme and plugin install completetd----------------------------\n');
-            setApiUrl(props.templateData.api_url);
-          })
-          .catch(function (error) {
-            console.log(error);
-          })
-          .finally(function () {
-            // always executed
-          });
-
-    } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-}
-
 
 const urlReset = ()=>{
   apiUrl && setApiUrl(null);

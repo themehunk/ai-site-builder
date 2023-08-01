@@ -2,6 +2,8 @@ import { useState,useEffect  } from '@wordpress/element';
 
 import shopmania from '../../../json/th-shop-mania.json';
 import gutenberg from '../../../json/gutenberg.json';
+import jotshop from '../../../json/jotshop.json';
+
 import bigstore from '../../../json/big-store.json';
 import SkeletonLoader from './skeleton-loader';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,6 +13,7 @@ export default function SiteTemplate(props) {
   const loader = useSelector((state)=>state.trueFalse);
   const dispatch = useDispatch();
   
+
 const imageHandel = (template)=> {
   dispatch(addTrueFalse(false));
 
@@ -96,7 +99,10 @@ const builderHandel = (builder,cate) => {
 
 
 
-var finalObj = shopmania.concat(gutenberg,bigstore);
+const finalObj = shopmania.concat(gutenberg,bigstore,jotshop);
+
+
+console.log(finalObj);
 
     return (
         <div class="right-column">
@@ -104,7 +110,7 @@ var finalObj = shopmania.concat(gutenberg,bigstore);
 {loader==false && <SkeletonLoader/>}
 
 {loader && <div class="image-container">
-    {finalObj.map((template) => {
+    {jotshop.map((template) => {
         return (<div className={`column builder-${template.builder_theme}`} style={builderHandel(template.builder_theme,template.category)} onClick={() => imageHandel(JSON.stringify(template))} >
       <div className='asib-tmpl-column'><div class="aisb-tmpl-item" data-id={template.id}>
       </div>

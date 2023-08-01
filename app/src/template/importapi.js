@@ -1,6 +1,7 @@
 import { useState,useEffect } from '@wordpress/element';
 import { useSelector, useDispatch } from 'react-redux';
 import {tmplLodaing} from '../actions';
+import { Button } from '@wordpress/components';
 
 const ThemehunkSSEImport = {
     complete: {
@@ -314,12 +315,24 @@ const importOptions = async () =>{
       }, []); // 👈️ empty dependencies array
 
      updateStart && executeStart();
-
-
     //  apiData && executeStart();
+
+    const handleClick= () =>{
+     // window.location.replace(AISB.baseurl);
+
+      window.open(AISB.baseurl, '_blank');
+
+    }
 
     return (<div>APi Ccall
       Message - : {lodaingMsg}
+
+      <Button variant="primary" onClick={ handleClick } >
+        View Website
+    </Button>
+    <Button variant="secondary" onClick={ handleClick } >
+        View Website
+    </Button>
     </div>);
 
 }
