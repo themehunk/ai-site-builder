@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import {tmplLodaing} from '../actions';
 
 
-
 function getThemeData(type){
 
   let thCustomizer = 'themehunk-customizer';
@@ -56,7 +55,7 @@ gogo:[
 
 portfolioline:[
   { 
-    type:'plugin', template: 'free', name: 'portfolioline',free:hunkCompanion,paid:'portfolioline' 
+    type:'theme', template: 'free', name: 'portfolioline',free:hunkCompanion,paid:'portfolioline' 
   },
 ],
 

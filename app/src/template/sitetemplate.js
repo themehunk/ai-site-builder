@@ -3,8 +3,24 @@ import { useState,useEffect  } from '@wordpress/element';
 import shopmania from '../../../json/th-shop-mania.json';
 import gutenberg from '../../../json/gutenberg.json';
 import jotshop from '../../../json/jotshop.json';
-
 import bigstore from '../../../json/big-store.json';
+import almaira from '../../../json/almaira.json';
+import amazstore from '../../../json/amaz-store.json';
+import featured from '../../../json/featured.json';
+import gogo from '../../../json/gogo.json';
+import mshop from '../../../json/m-shop.json';
+import novelpro from '../../../json/novelpro.json';
+import oneline from '../../../json/oneline.json';
+import openmart from '../../../json/open-mart.json';
+import openshop from '../../../json/openshop-pro.json';
+import portfolioline from '../../../json/portfolioline.json';
+import royalshop from '../../../json/royal-shop.json';
+import shopline from '../../../json/shopline-pro.json';
+import topstore from '../../../json/top-store-pro.json';
+
+
+
+
 import SkeletonLoader from './skeleton-loader';
 import { useSelector, useDispatch } from 'react-redux';
 import {addTrueFalse} from '../actions';
@@ -51,8 +67,8 @@ const tmplStyleShow = {
   display: 'block',
 };
 
-const customizer = ['big-store','open-shop'];
-const elementor = ['th-shop-mania','elementor'];
+const customizer = ['topstore','big-store','openshop-pro','jotshop','open-mart,','m-shop','shopline-pro','amaz-store','almaira','gogo','novelpro','oneline','portfolioline','featured'];
+const elementor = ['th-shop-mania','elementor','royal-shop'];
 const catearr = useSelector((state)=>state.changeCategory);
 
 const catgeryMap = (cate,displayShow) =>{
@@ -96,21 +112,19 @@ const builderHandel = (builder,cate) => {
 
 }
 
+//const jsonData = shopmania.concat(gutenberg,bigstore,jotshop);
 
 
-
-const finalObj = shopmania.concat(gutenberg,bigstore,jotshop);
-
-
-console.log(finalObj);
-
-    return (
+const jsonData = shopmania.concat(gutenberg,bigstore,jotshop,topstore,almaira,amazstore,openshop,
+  mshop,gogo,novelpro,oneline,openmart,shopline,portfolioline,royalshop,featured);
+  
+return (
         <div class="right-column">
 
 {loader==false && <SkeletonLoader/>}
 
 {loader && <div class="image-container">
-    {jotshop.map((template) => {
+    {jsonData.sort((a, b) => a.id > b.id ? -1 : 1).map((template) => {
         return (<div className={`column builder-${template.builder_theme}`} style={builderHandel(template.builder_theme,template.category)} onClick={() => imageHandel(JSON.stringify(template))} >
       <div className='asib-tmpl-column'><div class="aisb-tmpl-item" data-id={template.id}>
       </div>
