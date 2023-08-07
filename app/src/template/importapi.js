@@ -1,7 +1,6 @@
 import { useState,useEffect } from '@wordpress/element';
 import { useSelector, useDispatch } from 'react-redux';
-import {tmplLodaing} from '../actions';
-import { Button } from '@wordpress/components';
+import {tmplLodaing,stepFour} from '../actions';
 
 const ThemehunkSSEImport = {
     complete: {
@@ -55,6 +54,8 @@ const ThemehunkSSEImport = {
 export default function ImportAPI(props) {
   const dispatch = useDispatch();
   const lodaingMsg = useSelector((state)=>state.tmplInstall);
+  const pageStep = useSelector((state)=>state.stepLoad);
+
 
   const [apiUrl, setApiUrl] = useState(props.apiurl);
   const [apiData, setApiData] = useState(null);
@@ -302,6 +303,7 @@ const importOptions = async () =>{
           await importWidgets();
           console.log('widgets stop');
           setApiData(null);
+          dispatch(stepFour(true));
           return;
         } catch (error) {
           console.error('Error executing functions:', error);
@@ -317,22 +319,8 @@ const importOptions = async () =>{
      updateStart && executeStart();
     //  apiData && executeStart();
 
-    const handleClick= () =>{
-     // window.location.replace(AISB.baseurl);
+  
 
-      window.open(AISB.baseurl, '_blank');
-
-    }
-
-    return (<div>APi Ccall
-      Message - : {lodaingMsg}
-
-      <Button variant="primary" onClick={ handleClick } >
-        View Website
-    </Button>
-    <Button variant="secondary" onClick={ handleClick } >
-        View Website
-    </Button>
-    </div>);
+    return (<span className='loading-msg'>{lodaingMsg}</span>);
 
 }

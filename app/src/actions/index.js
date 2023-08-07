@@ -19,10 +19,39 @@ export const addTrueFalse = (payload) =>{
      }
 }
 
-
+// installStart use
 export const tmplLodaing = (payload) =>{
   return { 
     type: "INSTALL",
+    payload:payload
+     }
+}
+
+// Step Button Clik
+export const stepOne = (payload) =>{
+  return { 
+    type: "STEP1",
+    payload:payload
+     }
+}
+
+export const stepTwo = (payload) =>{
+  return { 
+    type: "STEP2",
+    payload:payload
+     }
+}
+
+export const stepThree = (payload) =>{
+  return { 
+    type: "STEP3",
+    payload:payload
+     }
+}
+
+export const stepFour = (payload) =>{
+  return { 
+    type: "STEP4",
     payload:payload
      }
 }

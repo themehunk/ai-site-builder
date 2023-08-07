@@ -1,11 +1,16 @@
 import { useState,useEffect } from '@wordpress/element';
+import { Button, Flex, FlexBlock, FlexItem,  __experimentalText as Text,
+  __experimentalVStack as VStack, CheckboxControl  } from '@wordpress/components';
 import axios from 'axios';
 import wpPlugins from '../../../json/plugins.json';
+import animationLoading  from '../../../json/lottie/loading';
+import animationProgress  from '../../../json/lottie/progress';
 import ImportAPI from './importapi';
 import { getQueryArg } from '@wordpress/url';
 import { useSelector, useDispatch } from 'react-redux';
 import {tmplLodaing} from '../actions';
-
+import { Icon, arrowRight,chevronLeftSmall } from '@wordpress/icons';
+import Lottie from 'react-lottie';
 
 function getThemeData(type){
 
@@ -198,7 +203,47 @@ export default function installStart(props){
           process();       
         }, []); // 👈️ empty dependencies array
 
-return(apiUrl && <ImportAPI apiurl = {apiUrl}  />);
+        const defaultLoading = {
+          loop: true,
+          autoplay: true, 
+          animationData: animationLoading,
+          rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+          }
+        };
+        
+        const defaultProgress = {
+          loop: true,
+          autoplay: true, 
+          animationData: animationProgress,
+          rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+          }
+        };
+
+
+return(<div className='aisb-site-build-wrap'>
+  
+  <div className='aisb-site-build'>
+                <Flex>
+                    <FlexItem>
+                    <div class="aisb-back">
+                    <div class="sb-column-close"><Button variant="primary" className="close"><Icon size ={22} icon={ chevronLeftSmall } />Back</Button></div>
+                </div>
+                    </FlexItem>
+                </Flex>
+            </div>
+
+            <div className='aisb-site-main'>
+                <div className='aisb-site-form'>
+                    <h2> Getting Your Site Ready ...</h2>
+ 
+              <Lottie options={defaultLoading} height={300} />
+              <Lottie options={defaultProgress} width={300} />
+              {  apiUrl && <ImportAPI apiurl = {apiUrl}  />}
+                </div>
+            </div>
+  </div>);
 
 
 }

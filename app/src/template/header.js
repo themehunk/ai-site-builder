@@ -1,3 +1,5 @@
+import { Icon, arrowRight,chevronLeftSmall } from '@wordpress/icons';
+import { Button } from '@wordpress/components';
 export default function Header() {
     return (
       <div className="header">
@@ -6,8 +8,12 @@ export default function Header() {
                 <img src="http://localhost/wp572/wp-content/themes/big-store/lib/th-option/assets/images/icon.png" alt="Logo" />
             </div>
             <div className="header-text">
-                <h1>Website Title</h1>
-                <p>Welcome to our website</p>
+                <Button variant="primary" className='aisb-upgrade-btn'>
+                <Icon icon={<svg  viewBox="0 0 1024 1024" class="icon"  version="1.1"><path d="M57 438.312l109.536 488.72h697.336l109.536-488.72-259.176 156.816-187.856-333.088-205.352 333.088z" fill="#EC9312" /><path d="M629.048 211.888c0 58.912-47.752 106.656-106.672 106.656-58.92 0-106.664-47.744-106.664-106.656 0-58.976 47.744-106.656 106.664-106.656s106.672 47.688 106.672 106.656z" fill="#CB1B5B" /><path d="M522.376 105.232c-58.92 0-106.664 47.68-106.664 106.656 0 58.912 47.744 106.656 106.664 106.656V105.232z" fill="#E5226B" /><path d="M57 438.312l109.536 488.72h697.336z" fill="#F4A832" /><path d="M973.408 438.312l-109.536 488.72H166.536z" fill="#F4A832" /><path d="M166.536 927.032h697.336L515.2 715.832z" fill="#F5B617" /><path d="M1017.856 409.44a55.2 55.2 0 0 1-55.264 55.208 55.184 55.184 0 0 1-55.216-55.208 55.2 55.2 0 0 1 55.216-55.264 55.2 55.2 0 0 1 55.264 55.264z" fill="#0472AF" /><path d="M962.592 354.176a55.2 55.2 0 0 0-55.216 55.264 55.184 55.184 0 0 0 55.216 55.208V354.176z" fill="#1A8DCC" /><path d="M116.656 409.44a55.216 55.216 0 0 1-55.272 55.208A55.208 55.208 0 0 1 6.144 409.44a55.208 55.208 0 0 1 55.24-55.264 55.224 55.224 0 0 1 55.272 55.264z" fill="#0472AF" /><path d="M61.384 354.176A55.216 55.216 0 0 0 6.144 409.44a55.2 55.2 0 0 0 55.24 55.208V354.176z" fill="#0092D2" /></svg>} />
+                UPGRADE PRO</Button> <b>Version 1.0</b>
+
+                <Icon icon={<svg className = "dashboard-link" fill="#000000" width="16px" height="16px" viewBox="0 0 512 512" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"><path d="M410.81,281.1H440.7V431.41A46.64,46.64,0,0,1,394.11,478H93.5a46.64,46.64,0,0,1-46.59-46.59V130.8A46.64,46.64,0,0,1,93.5,84.21H243.81V114.1H93.5a16.72,16.72,0,0,0-16.7,16.7V431.41a16.72,16.72,0,0,0,16.7,16.7H394.11a16.72,16.72,0,0,0,16.7-16.7ZM210.69,334.84l29.84,1.7L244.16,273c2.54-44.54,22.26-84.35,54.12-109.22a149.51,149.51,0,0,1,91.58-31.51h18L360.6,179.56l21.14,21.14,83.35-83.35L381.74,34,360.6,55.14l47.27,47.26h-18a179.52,179.52,0,0,0-110,37.85c-38.64,30.17-62.54,77.94-65.57,131.08Z"/></svg>} />
+
             </div>
         </header>
       </div>

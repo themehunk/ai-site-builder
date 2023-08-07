@@ -119,18 +119,18 @@ const jsonData = shopmania.concat(gutenberg,bigstore,jotshop,topstore,almaira,am
   mshop,gogo,novelpro,oneline,openmart,shopline,portfolioline,royalshop,featured);
   
 return (
-        <div class="right-column">
+        <div class="right-column-delet asib-main-tmpl">
 
 {loader==false && <SkeletonLoader/>}
 
 {loader && <div class="image-container">
-    {jsonData.sort((a, b) => a.id > b.id ? -1 : 1).map((template) => {
+    {jsonData.sort((a, b) => a.name > b.name ? -1 : 1).map((template) => {
         return (<div className={`column builder-${template.builder_theme}`} style={builderHandel(template.builder_theme,template.category)} onClick={() => imageHandel(JSON.stringify(template))} >
       <div className='asib-tmpl-column'><div class="aisb-tmpl-item" data-id={template.id}>
       </div>
       <img id="myImg" demourl={template.demo_url} src={template.thumb} alt={template.title} />
         <div className='asib-tmpl-footer'>
-          <span>{template.title}</span>
+          <h3>{template.title}</h3>
           {template.free_paid =="paid" && <span className='aisb-pro'>PREMIUM</span>}
         </div>
       </div>

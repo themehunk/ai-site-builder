@@ -3,7 +3,6 @@ import { createRoot, render, createElement,useState } from '@wordpress/element';
 import Header from './template/header';
 import BuilderIcon from './template/buildericon';
 import AiBuilder from './template/aibuilder';
-import { Switch } from '@mui/material';
 
 export default function App() {
 
@@ -15,13 +14,16 @@ export default function App() {
     return (
       
       <div className="App">
+      <div className="aisb-app-wrap">
       <Header/>
       <div className='heading'>
-      <h1 >Welcome to ReactPress with React Router!!! hello friends </h1>
+      <h1 >Select Template to Build Your Website ! </h1>
 
       </div>
       <BuilderIcon builderclick = {(builder_rs)=>builderHide(builder_rs)}/>
         <AiBuilder builder = {builder} />
+
+        </div>
       </div>
     );
   }

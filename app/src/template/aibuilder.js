@@ -4,24 +4,28 @@ import SidebarCategory from './sidebarcategory';
 import SiteTemplate from './sitetemplate';
 import SidebarInstall from './sidebarInstall';
 import { useSelector, useDispatch } from 'react-redux';
-import {addCategory,removeCategory} from '../actions';
+import {addCategory,removeCategory,stepOne,stepTwo,stepThree} from '../actions';
 import InstallStart from './installStart';
-
+import BuildWibsite from './buildwebsite';
+import Success from './success';
 
 
 
 export default function AiBuilder(props) {
   const myState = useSelector((state)=>state.changeCategory);
+  const pageStep = useSelector((state)=>state.stepLoad);
   const dispatch = useDispatch();
   console.log(myState);
   const [ templateData, setTemplateData ] = useState(null);
   const [ iframeurl, setIframeUrl ] = useState(false);
   const [ loader, setLoaderl ] = useState(true);
   const [ nextBtn, setNextBtn ] = useState(true);
+  const [ stepThree, setStepThree ] = useState(false);
   const [ iframeDisplay, setIframeDisplay ] = useState({display:"block"});
   
   const handeldata =  (jdata)=> {
     try {
+      dispatch(stepOne(true));
     document.body.style.overflow = "hidden";
     setIframeDisplay({display:"none"});
    // document.getElementById("iframetmpl").style.display = "none"; 
@@ -54,21 +58,30 @@ export default function AiBuilder(props) {
        }
 
       const installHandel = ()=>{
-        setNextBtn(false)
-          alert();
+        dispatch(stepTwo(true));
+        setNextBtn(false);
+       setStepThree(true);
        }
+
+
+       console.log(pageStep);
     return (<>
         <div class="aisb-container-main-tmpl">
-        <SidebarCategory categoryAddRemove = {(ischecked,cate)=>categoryAddRemove(ischecked,cate)}/>
+        {/* <SidebarCategory categoryAddRemove = {(ischecked,cate)=>categoryAddRemove(ischecked,cate)}/> */}
         <SiteTemplate  datatemp={(jdata)=>handeldata(jdata)} builderHide = {props.builder}/>
       </div>
-      <div id="myModal" class="modal">
-      {nextBtn === false && <div> Installation start <InstallStart templateData={templateData} /></div>}
+      <div id="myModal" class="aisb-model modal">
+
+          {pageStep.createWebsite &&  <BuildWibsite />}
+
+         {pageStep.install && <InstallStart templateData={templateData} />}
+
+         {  pageStep.success && <Success />}
 
 
         {  /*** demo show and next button click */}
-      {nextBtn &&  <div class="aisb-container-demo-tmpl theme-install-overlay wp-full-overlay expanded">
-              <div class="left-column wp-full-overlay-sidebar" id="sidebarModel">
+      {pageStep.iframe &&  <div class="aisb-container-demo-tmpl theme-install-overlay-stop wp-full-overlay-stop expanded-stop">
+              <div class="left-column wp-full-overlay-sidebar-stop" id="sidebarModel">
               
               {templateData !== null && <SidebarInstall templateData={templateData} installHandel = {()=>installHandel()}/>}
 

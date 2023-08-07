@@ -15,7 +15,19 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
          self::init_admin_settings($params);
            
         }
+        static public function getFileUrl() {
+                // If the function it's not available, require it.
+                if ( ! function_exists( 'download_url' ) ) {
+                    require_once ABSPATH . 'wp-admin/includes/file.php';
+                }
+        }
 
+
+        static public function getapiUrl(){
+            $key = '1234Mad5@temaand'; // Replace this with your desired input string
+            $apiKey = @md5($key);
+            return $apiKey;
+        }
 
            /**
 		 * Admin settings init
@@ -31,35 +43,28 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
             $tmplFreePro        = $params['tmplFreePro'];       // pro template type theme or plugin
 
 
-
-            if($tmplFreePro==='theme'){
-
-            } elseif($tmplFreePro==='plugin'){
-
-            }
-
-            $installType = 'wp';
+            $localPlugin = $localTheme = true;
            if($templateType==='free'){
             $installplugin[$proThemePlugin]='Themehunk Plugins';
 
            }elseif($templateType==='paid' && $tmplFreePro==='theme'){
-               // $theme_slug = $proThemePlugin;
-               $installType= 'server';
+                $theme_slug = $proThemePlugin;
+               $localTheme= false;
 
            }elseif($templateType==='paid' && $tmplFreePro==='plugin'){
 
-           // $installplugin[$proThemePlugin]='Premium Plugins';
-              $installType= 'server';
+            $installplugin[$proThemePlugin]='Premium Plugins';
+              $localPlugin= false;
            }
 
 
-           self::theme_install($theme_slug,$templateType);
-           self::plugin_install($installplugin,$allplugins,$templateType);
+           self::theme_install($theme_slug,$localTheme);
+           self::plugin_install($installplugin,$allplugins,$localPlugin);
 
         }
 
 
-        static public function plugin_install($plugin,$allplugins,$templateType){
+        static public function plugin_install($plugin,$allplugins,$localPlugin){
 
             foreach($plugin as $slug => $value){
 
@@ -76,7 +81,7 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
 
                 }else{
                     //plugin install and acitvation code
-                    self::init_plugin($slug,$init,$templateType);
+                    self::init_plugin($slug,$init,$localPlugin);
 
                 }
                 
@@ -84,7 +89,7 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
 
         }
 
-        static public function theme_install($theme_slug,$templateType){
+        static public function theme_install($theme_slug,$localTheme){
 
             if(get_option( 'template' )===$theme_slug) return 1;
             $installed_themes = wp_get_themes();
@@ -98,7 +103,7 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
                 return 2;
 
                 } else {
-                self::init_theme($theme_slug,$templateType);
+                self::init_theme($theme_slug,$localTheme);
 
                return 3;
             }
@@ -144,23 +149,28 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
             return null;
         }
 
+    
+
 
         /**
 		 * Theme init
 		 */
-		static public function init_theme($theme_slug,$templateType) {
-
-
-                // If the function it's not available, require it.
-                if ( ! function_exists( 'download_url' ) ) {
-                    require_once ABSPATH . 'wp-admin/includes/file.php';
-                }
+		static public function init_theme($theme_slug,$localTheme) {
+                
+                self::getFileUrl();
+                
+             
                 WP_Filesystem();
 
-                $wp = 'https://downloads.wordpress.org/theme/'.$theme_slug.'.zip';
-                $server = 'http://localhost/test/install/?api=abcd';
+                     $downloadUrl = 'https://downloads.wordpress.org/theme/'.$theme_slug.'.zip';
 
-                $temp_file = download_url($wp); 
+                if($localTheme===false){
+                    $apiKey = self::getapiUrl();
+                    $downloadUrl = 'https://themehunk.com/wp/data/?theme='.$theme_slug.'&apiKey='.$apiKey;
+                }
+
+
+                $temp_file = download_url($downloadUrl); 
 
 
                 $theme_dir = get_theme_root() . '/';
@@ -196,24 +206,30 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
            /**
 		 * Theme init
 		 */
-		static public function init_plugin($slug,$init,$templateType) {
+		static public function init_plugin($slug,$init,$localPlugin) {
 
             
-            // If the function it's not available, require it.
-            if ( ! function_exists( 'download_url' ) ) {
-                require_once ABSPATH . 'wp-admin/includes/file.php';
-            }
+            self::getFileUrl();
+            
             WP_Filesystem();
 
+            
             $temp_file = download_url('https://downloads.wordpress.org/plugin/'.$slug.'.zip'); 
 
-            $theme_dir = WP_PLUGIN_DIR . '/';
+            $plugin_dir = WP_PLUGIN_DIR . '/';
+
+            if($localPlugin===false){
+                $apiKey = self::getapiUrl();
+
+                $temp_file = 'https://themehunk.com/wp/data/?plugin='.$slug.'&apiKey='.$apiKey;
+            }
+
 
             if (is_wp_error($temp_file)) {
                 // Handle error
             } else {
                 // Unzip the downloaded file
-                $unzip_result = unzip_file($temp_file, $theme_dir);
+                $unzip_result = unzip_file($temp_file, $plugin_dir);
 
                 if (is_wp_error($unzip_result)) {
                     // Handle error
