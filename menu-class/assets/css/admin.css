@@ -2,6 +2,33 @@
   --aisb-bg-color: -webkit-linear-gradient( 0deg, rgb(74,0,224) 0%, rgb(142,45,226) 100%);
 }
 
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 20px;
+  /* margin-top: 10px;
+  margin-bottom: 10px; */
+
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+    border-radius:10px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 html.wp-toolbar {
     padding-top: 0;
 }
@@ -95,18 +122,16 @@ header {
 
   .header-text .dashboard-link{
     margin-right: 5px;
-    height: 12px;
-    width: 16px;
-    fill: #ffffff;
     font-weight: bold;
     padding-left: 11px;
-    /* background: #fbd15b; */
     padding: 2px;
     border-radius: 4px;
     margin-left: 10px;
 }
 
   /* builder icon css */
+
+
 
   .heading{
     text-align: center;
@@ -115,46 +140,33 @@ header {
   .aisb-builder-icon {
     display: flex;
     justify-content: center;
-    padding: 1.5rem 0 2rem 0;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
   }
 
-  .aisb-builder-icon .column-icon {
+  .aisb-builder-icon .column-icon, .MuiMenu-list .column-icon  {
     display: flex;
     align-items: center;
-    margin: 10px;
-    cursor: pointer;
-    color: #007eff;
-    outline: 0;
-    background: #ffffff;
-    -webkit-box-shadow: 0px 6px 6px rgb(53 66 134 / 10%);
-    box-shadow: 0px 6px 6px rgb(53 66 134 / 10%);
-    align-items: center;
-    padding: 9px 27px;
-    border-radius: 8px;
 
   }
 
   .aisb-builder-icon .column-icon:hover {
     color: #007eff;
-    outline: 0;
-    background: #E1E6F4;
-    -webkit-box-shadow: 0px 6px 6px rgb(53 66 134 / 10%);
-    box-shadow: 0px 6px 6px rgb(53 66 134 / 10%);
-    align-items: center;
-    padding: 9px 27px;
-    border-radius: 8px;
-
   }
-  .aisb-builder-icon .column-icon.active{
-    background-color:#E1E6F4;
-    }
+ 
   .aisb-builder-icon .image-box-builder-icon {
     text-align: center;
     margin-right: 10px;
   }
   
-  .aisb-builder-icon .column-icon img {
-    width: 30px;/* Adjust the width as needed */
+  .aisb-builder-icon .column-icon img,  .MuiInputBase-input .column-icon img{
+    width: 23px;
+  }
+
+ 
+ .MuiMenu-list .column-icon img {
+  width: 26px;
+  padding-right: 15px;
   }
   
   .aisb-builder-icon .image-text-builder-icon {
@@ -163,6 +175,10 @@ header {
   }
 
 
+  .MuiInputBase-input:focus {
+
+    background-color: #fff !important;
+  }
 
     /* template style */
     
@@ -378,18 +394,18 @@ fill: #ffff;
 
 .aisb-back .close svg{
   fill: #8535c6;
-
+  padding-top: 4px;
 }
 .aisb-back .close {
-  color: #8535c6;
-  font-size: 16px;
-  transition: 0.3s;
-  border: 1px solid;
-  padding: 5px 12px 5px 10px;
-  border-radius: 6px;
-  margin-left: 28%;
-  display: inline-flex;
-  font-weight: 500;
+     color: #8535c6;
+    font-size: 15px;
+    transition: 0.3s;
+    border: 1px solid #f0f0f0;
+    padding: 2px 11px 3px 5px;
+    border-radius: 25px;
+    margin-left: 28%;
+    display: inline-flex;
+    font-weight: 500;
 }
 
 .aisb-back .close:hover,
@@ -683,7 +699,7 @@ input[type=text]:focus{
 
 .aisb-site-options label::before {
   content: "";
-  background: url("../../../json/lottie/check-circle.svg");
+  background: url("../../../json/svg/check-circle.svg");
   background-position: center;
   background-size: contain;
   width: 20px;

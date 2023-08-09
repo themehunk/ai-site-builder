@@ -1,11 +1,5 @@
 <?php
-if ( ! defined( 'THEMEHUNK_THEME_NAME' ) ) {
 
-define('THEMEHUNK_THEME_NAME',esc_html__( 'TH Shop Mania Pro', 'themehunk' ));
-}
-if ( ! defined( 'THEMEHUNK_SITE_LIBRARY_VER' ) ) {
-	define( 'THEMEHUNK_SITE_LIBRARY_VER', 1.0 );
-}
 
 if ( ! defined( 'ALLOW_UNFILTERED_UPLOADS' ) ) {
 	define( 'ALLOW_UNFILTERED_UPLOADS', true );

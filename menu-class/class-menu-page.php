@@ -102,6 +102,17 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
             $page_menu_func =   __CLASS__ . '::menu_callback';
         
             add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
+
+
+            add_menu_page( 
+                __( 'Custom Menu Title', 'textdomain' ),
+                'custom menu',
+                'manage_options',
+                'ai-site-builder-dashbaord',
+                __CLASS__ . '::dashboard_callback',
+                plugins_url( 'myplugin/images/icon.png' ),
+                6
+            ); 
         }
 
 
@@ -117,10 +128,19 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
             array( 
                 'ajaxurl' => admin_url( 'admin-ajax.php' ),
                 'baseurl' => site_url( '/' ),
+                'pluginpath'=>AI_SITE_BUILDER_PLUGIN_URL
             )
         );
 
         }
+
+
+        static public function dashboard_callback() {
+            ?>
+            <div class="ai-site-builder-dashbaord" id="ai-site-builder-dashbaord"> Hello</div>
+            <?php
+        }
+
 
 
         /**
@@ -130,108 +150,12 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
 		 */
         
          static public function menu_callback() {
-           
             ?>
             <div class="themehunk-sites-menu-page-wrapper">
-                <?php  
-                //self::theme_install(); 
-                
-                //add_action( 'init', __CLASS__ . '::theme_install');    ?>
            <?php require_once(AI_SITE_BUILDER_DIR_PATH . 'menu-class/template.php'); ?>
-
-
-        </div>
-
             </div>
             <?php
         }
-
-         public function theme_install(){
-
-            // If the function it's not available, require it.
-                if ( ! function_exists( 'download_url' ) ) {
-                    require_once ABSPATH . 'wp-admin/includes/file.php';
-                }
-                 WP_Filesystem();
-
-            $temp_file = download_url('http://localhost/test/install/?api=abcd'); 
-            $theme_dir = get_theme_root() . '/';
-           // $theme_dir = WP_PLUGIN_DIR . '/';
-
-            
-
-            if (is_wp_error($temp_file)) {
-                // Handle error
-            } else {
-                // Unzip the downloaded file
-                $unzip_result = unzip_file($temp_file, $theme_dir);
-            
-                if (is_wp_error($unzip_result)) {
-                    // Handle error
-                } else {
-                    $theme_slug = 'team'; // Replace with the theme slug
-                    $theme_name = 'My Team Testing'; // Replace with the theme name
-            
-                    // Activate the theme
-                    switch_theme($theme_slug);
-            
-                    // Update the theme name
-                    $theme = wp_get_theme($theme_slug);
-                    $theme->display('Name', $theme_name);
-            
-                    // Cleanup the temporary file
-                    @unlink($temp_file);
-            
-                    // Theme installed and activated successfully
-                }
-            }
-
-
-
-return;
-                
-            if (is_wp_error($theme)) {
-                // Handle error
-            } else {
-                $tmp_file = $theme; //wp_tempnam($theme['body']);
-               
-                if (!is_wp_error($tmp_file) && $tmp_file) {
-                    print_r($tmp_file);
-
-                    $theme = wp_handle_sideload($tmp_file, array('test_form' => false));
-                    $theme_name = sanitize_file_name($theme['file']);
-                    print_r($theme);
-                    $theme_data = get_file_data($theme['file'], array('Name' => 'team', 'Template' => 'Template'));
-                    print_r($theme_data);
-                    $new_theme = array(
-                        'post_title'    => $theme_data['Name'],
-                        'post_status'   => 'publish',
-                        'post_type'     => 'theme'
-                    );
-                    
-                    $theme_id = wp_insert_post($new_theme);
-                   print_r($theme_id);
-                    if ($theme_id) {
-                        update_post_meta($theme_id, 'template', $theme_data['Template']);
-                        update_post_meta($theme_id, '_wp_page_template', 'default'); // Set the default template if needed
-                        update_post_meta($theme_id, '_theme_name', $theme_data['Name']);
-                        // Other theme meta data can be set as needed
-                        
-                        // Theme installed successfully
-                        echo "succsess instal theme";
-                    } else {
-                        // Handle error
-                    }
-                } else {
-                    // Handle error
-                }
-            }
-
-
-        }
-
-
-
 
     }
 
