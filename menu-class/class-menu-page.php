@@ -75,8 +75,10 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
 
         static public function admin_classes( $classes ) {
             global $pagenow;
-        
-            if ( in_array( $pagenow, array( 'themes.php' ), true ) ) {
+            //themes.php
+            if ( in_array( $pagenow, array( 'admin.php' ), true ) ) {
+
+                if(isset($_GET['template']) && $_GET['template'] ==='step')
                 $classes .= ' ai-site-builder';
             }
         
@@ -101,15 +103,15 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
 			$page_menu_slug = self::$plugin_slug;
             $page_menu_func =   __CLASS__ . '::menu_callback';
         
-            add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
+           // add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
 
 
             add_menu_page( 
-                __( 'Custom Menu Title', 'textdomain' ),
-                'custom menu',
-                'manage_options',
-                'ai-site-builder-dashbaord',
-                __CLASS__ . '::dashboard_callback',
+                $page_title,
+                $page_title,
+                $capability,
+                $page_menu_slug,
+                $page_menu_func,
                 plugins_url( 'myplugin/images/icon.png' ),
                 6
             ); 
@@ -117,7 +119,11 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
 
 
         public function admin_enqueue( $hook = '' ) {
-            if ( 'appearance_page_'.self::$plugin_slug !== $hook ) {
+            // if ( 'appearance_page_'.self::$plugin_slug !== $hook ) {
+			// 	return;
+			// }
+
+            if ( 'toplevel_page_'.self::$plugin_slug !== $hook ) {
 				return;
 			}
 			wp_enqueue_style( 'ai-site-builder-admin', AI_SITE_BUILDER_PLUGIN_URL . 'menu-class/assets/css/admin.css', 1.0, 'true' );
@@ -133,16 +139,6 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
         );
 
         }
-
-
-        static public function dashboard_callback() {
-            ?>
-            <div class="ai-site-builder-dashbaord" id="ai-site-builder-dashbaord"> Hello</div>
-            <?php
-        }
-
-
-
         /**
 		 * Menu callback
 		 *

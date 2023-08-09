@@ -12,9 +12,6 @@
 ::-webkit-scrollbar-track {
   background: #f1f1f1; 
   border-radius: 20px;
-  /* margin-top: 10px;
-  margin-bottom: 10px; */
-
 }
  
 /* Handle */
@@ -41,6 +38,47 @@ html.wp-toolbar {
 .ai-site-builder #adminmenuwrap, .ai-site-builder #wpadminbar, .ai-site-builder #wpfooter {
     display: none;
 } 
+/*** Dashboard Desing **/
+.aisb-dashboard {
+    margin-top: 3%;
+    width: 99%;
+}
+
+.aisb-dashboard .aisb-dashboard-header {
+  background: #fff;
+  padding: 10px 0px;
+  border-radius: 8px;
+}
+
+.aisb-dashboard .aisb-dashboard-header .aisb-logo {
+  gap: 15px;
+  display: flex;
+  padding: 15px;
+}
+
+.aisb-dashboard .aisb-dashboard-header .aisb-logo img{
+  height: 30px;
+}
+.aisb-dashboard .aisb-dashboard-header .aisb-logo h2{
+    margin: 0;
+    font-weight: 600;
+    padding-top: 5px;
+}
+
+.aisb-dashboard .aisb-dashboard-header .aisb-logo small{
+border-right: 2px solid #e3e3e3;
+}
+
+.aisb-dashboard .aisb-dashboard-header button.components-button.aisb-upgrade-btn.is-primary{
+  color: #fff;
+  background: var(--aisb-bg-color); 
+}
+
+.aisb-dashboard .aisb-dashboard-header .header-text b {
+  color: #666060;
+}
+
+/** template Design **/
 
 .ai-site-builder #wpcontent, .ai-site-builder #wpfooter {
     margin: 0;
@@ -88,8 +126,8 @@ header {
 
   button.components-button.aisb-upgrade-btn.is-primary {
     background: #fbd15b;
-    border-radius: 10px;
-    padding: 5px 8px;
+    border-radius: 15px;
+    padding: 6px 15px;
     border: 0;
     font-weight: 600;
     margin-right: 10px;
