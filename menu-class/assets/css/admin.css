@@ -1,7 +1,9 @@
 :root {
   --aisb-bg-color: -webkit-linear-gradient( 0deg, rgb(74,0,224) 0%, rgb(142,45,226) 100%);
 }
-
+ #adminmenu .toplevel_page_ai-site-builder .wp-menu-image img{
+    padding: 6px 0 0;
+}
 
 /* width */
 ::-webkit-scrollbar {
@@ -40,8 +42,9 @@ html.wp-toolbar {
 } 
 /*** Dashboard Desing **/
 .aisb-dashboard {
-    margin-top: 3%;
-    width: 99%;
+  margin-top: 3%;
+  width: 94%;
+  margin-left: 2%;
 }
 
 .aisb-dashboard .aisb-dashboard-header {
@@ -76,6 +79,92 @@ border-right: 2px solid #e3e3e3;
 
 .aisb-dashboard .aisb-dashboard-header .header-text b {
   color: #666060;
+}
+
+
+.aisb-dashboard .aisb-dashboard-content {
+  margin-top: 3rem;
+  align-items: flex-start;
+}
+
+.aisb-dashboard .aisb-left-db {
+  width: 65%;
+}
+
+.aisb-dashboard .aisb-left-content {
+  background: #fff;
+  padding: 35px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+
+.aisb-dashboard .aisb-left-content h2{
+  background: var(--aisb-bg-color);
+  padding: 12px 70px;
+  color: #fff;
+  border-radius: 10px;
+  display: inline;
+  font-size: 1.6em;
+  display: inline-flex;
+}
+
+.aisb-dashboard .aisb-left-content .create-website img{
+  width: 27px;
+  margin-top: -3px;
+  padding-right: 5px;
+
+}
+
+.aisb-dashboard .aisb-left-content a{
+  color: #fff;
+ text-decoration: none;
+}
+
+.aisb-dashboard .aisb-left-content h2 a:focus{
+  box-shadow: 0 0 0;
+}
+
+.aisb-dashboard .aisb-left-content iframe {
+  max-width: 100%;
+  display: initial;
+  height: 300px;
+  border-radius: 22px;
+}
+
+.aisb-dashboard .aisb-left-content img{
+  width: 100%;
+}
+
+.aisb-dashboard .aisb-right-db {
+  width: 26%;
+}
+
+.aisb-dashboard .aisb-right-content{
+  background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 2.4rem;
+}
+
+.aisb-dashboard .aisb-right-content.red{
+  border-bottom: 3px solid #f7a0a0;
+  box-shadow: 0px 2px 8px 1px rgb(139 138 138 / 30%);
+}
+
+.aisb-dashboard .aisb-right-content.blue {
+  border-bottom: 3px solid #b292ff;
+  box-shadow: 0px 2px 8px 1px rgb(139 138 138 / 30%);
+}
+.aisb-dashboard .aisb-right-content.yellow {
+  border-bottom: 3px solid #ffcd72;
+  box-shadow: 0px 2px 8px 1px rgb(139 138 138 / 30%);
+}
+
+.aisb-dashboard .aisb-right-content.green {
+  border-bottom: 3px solid #43ffc2;
+  box-shadow: 0px 2px 8px 1px rgb(139 138 138 / 30%);
 }
 
 /** template Design **/
@@ -114,13 +203,13 @@ header {
     color: #ffffff;
   }
   
-  .aisb-app-wrap header .logo {
+  .aisb-logo {
     background: #fff;
     padding: 3px 6px;
     border-radius: 5px;
   }
   
-  .aisb-app-wrap header .logo img {
+  .aisb-logo img {
     height: 30px; /* Adjust the height as needed */
   }
 
@@ -696,7 +785,7 @@ input[type=text]:focus{
     background: var(--aisb-bg-color);
     border-radius: 25px;
     padding: 12px 50px 5px 50px;
-    cursor: default;
+    cursor: pointer;
   }
 
   .aisb-site-form .aisb-border-btn {
@@ -705,7 +794,7 @@ input[type=text]:focus{
     border-radius: 25px;
     padding: 12px 50px 5px 50px;
     border: 1px solid #8929e2;
-    cursor: default;
+    cursor: pointer;
     display: flex;
     fill:  #8929e2;
     font-weight: 500;

@@ -3,6 +3,7 @@ import animationSuccess  from '../../../json/lottie/success';
 import { getQueryArg } from '@wordpress/url';
 import { Icon, arrowRight,chevronLeftSmall } from '@wordpress/icons';
 import Lottie from 'react-lottie';
+import { HomeLink, Logo, Upgrade } from '../aisb';
 
 
 export default function success(){
@@ -30,10 +31,13 @@ return(<div className='aisb-site-build-wrap'>
             <div className='aisb-site-build'>
               <Flex>
                   <FlexItem>
-                  <div class="aisb-back">
-                  <div class="sb-column-close"><Button variant="primary" className="close"><Icon size ={22} icon={ chevronLeftSmall } />Back</Button></div>
-              </div>
+                  <Logo/>
                   </FlexItem>
+                  <FlexItem>
+                  <div className="header-text">
+            <Upgrade/>
+            <HomeLink/>
+            </div></FlexItem>
               </Flex>
           </div>
 

@@ -112,7 +112,7 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
                 $capability,
                 $page_menu_slug,
                 $page_menu_func,
-                plugins_url( 'myplugin/images/icon.png' ),
+                plugins_url( 'ai-site-builder/app/assets/svg/icon.svg' ),
                 6
             ); 
         }
@@ -134,8 +134,9 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
             array( 
                 'ajaxurl' => admin_url( 'admin-ajax.php' ),
                 'baseurl' => site_url( '/' ),
-                'pluginpath'=>AI_SITE_BUILDER_PLUGIN_URL
-            )
+                'pluginpath'=>AI_SITE_BUILDER_PLUGIN_URL,
+                'upgrade'=>'https://themehunk.com'           
+                 )
         );
 
         }

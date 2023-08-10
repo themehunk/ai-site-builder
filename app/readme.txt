@@ -1,6 +1,6 @@
 === App ===
-Contributors:      The WordPress Contributors
-Tags:              block
+Contributors:      AI Site Builder
+Tags:              block plugin
 Tested up to:      5.9
 Stable tag:        0.1.0
 License:           GPL-2.0-or-later
@@ -44,6 +44,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 0.1.1 =
+* Design issue complete.
 
 = 0.1.0 =
 * Release
