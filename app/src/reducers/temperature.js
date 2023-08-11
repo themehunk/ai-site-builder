@@ -16,6 +16,8 @@ const initialStateTF = true;
 const trueFalse = ( state = initialStateTF, action) =>{
     switch(action.type){
         case "ACTION" : return action.payload;
+        case "BUILDER" : return action.payload;
+
         default: return state;
     }
 

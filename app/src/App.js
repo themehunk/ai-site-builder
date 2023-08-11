@@ -20,13 +20,16 @@ export default function App() {
     setBuilder(builder_rs);
   }
 
-  useEffect(() => {
 
+
+  useEffect(() => {
     if(getQueryArg( currentUrl,'template' ) ==='step'){
       setpageChange(true);
     }else{
       setpageChange(false);
     }
+
+
   }, []);
 
     return (

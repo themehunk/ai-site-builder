@@ -1,25 +1,22 @@
 import { useState,useEffect  } from '@wordpress/element';
 
-import shopmania from '../../../json/th-shop-mania.json';
-import gutenberg from '../../../json/gutenberg.json';
-import jotshop from '../../../json/jotshop.json';
-import bigstore from '../../../json/big-store.json';
-import almaira from '../../../json/almaira.json';
-import amazstore from '../../../json/amaz-store.json';
-import featured from '../../../json/featured.json';
-import gogo from '../../../json/gogo.json';
-import mshop from '../../../json/m-shop.json';
-import novelpro from '../../../json/novelpro.json';
-import oneline from '../../../json/oneline.json';
-import openmart from '../../../json/open-mart.json';
-import openshop from '../../../json/openshop-pro.json';
-import portfolioline from '../../../json/portfolioline.json';
-import royalshop from '../../../json/royal-shop.json';
-import shopline from '../../../json/shopline-pro.json';
-import topstore from '../../../json/top-store-pro.json';
-
-
-
+import shopmania from '../../assets/json/th-shop-mania.json';
+import gutenberg from '../../assets/json/gutenberg.json';
+import jotshop from '../../assets/json/jotshop.json';
+import bigstore from '../../assets/json/big-store.json';
+import almaira from '../../assets/json/almaira.json';
+import amazstore from '../../assets/json/amaz-store.json';
+import featured from '../../assets/json/featured.json';
+import gogo from '../../assets/json/gogo.json';
+import mshop from '../../assets/json/m-shop.json';
+import novelpro from '../../assets/json/novelpro.json';
+import oneline from '../../assets/json/oneline.json';
+import openmart from '../../assets/json/open-mart.json';
+import openshop from '../../assets/json/openshop-pro.json';
+import portfolioline from '../../assets/json/portfolioline.json';
+import royalshop from '../../assets/json/royal-shop.json';
+import shopline from '../../assets/json/shopline-pro.json';
+import topstore from '../../assets/json/top-store-pro.json';
 
 import SkeletonLoader from './skeleton-loader';
 import { useSelector, useDispatch } from 'react-redux';

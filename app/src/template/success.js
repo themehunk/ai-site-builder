@@ -1,5 +1,5 @@
 import { Button, Flex, FlexBlock, FlexItem } from '@wordpress/components';
-import animationSuccess  from '../../../json/lottie/success';
+import animationSuccess  from '../../assets/lottie/success';
 import { getQueryArg } from '@wordpress/url';
 import { Icon, arrowRight,chevronLeftSmall } from '@wordpress/icons';
 import Lottie from 'react-lottie';

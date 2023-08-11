@@ -19,6 +19,14 @@ export const addTrueFalse = (payload) =>{
      }
 }
 
+export const builderType = (payload) =>{
+  
+  return { 
+    type: "BUILDER",
+    payload:payload
+     }
+}
+
 // installStart use
 export const tmplLodaing = (payload) =>{
   return { 

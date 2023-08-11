@@ -2,7 +2,7 @@ import { useState } from '@wordpress/element';
 import axios from 'axios';
 import { Button, Flex, FlexBlock, FlexItem } from '@wordpress/components';
 import { Icon, arrowRight,chevronLeftSmall } from '@wordpress/icons';
-import wpPlugins from '../../../json/plugins.json';
+import wpPlugins from '../../assets/json/plugins.json';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import ImportAPI from './importapi';
@@ -45,7 +45,7 @@ const nextInstall = ()=>{
 }
 
 console.log(props.templateData);
-    return (<div className='iframe-footer'>
+    return (<div className='iframe-footer header'>
         <Flex>
               <FlexItem>
               <div class="aisb-back">

@@ -68,7 +68,6 @@ export default function ImportAPI(props) {
      */
 
     const getImportData = async () =>{
-      dispatch(tmplLodaing('Importing start...'));
           const dataToSend = { data: apiUrl }; // Customize the data to send
            const response = await fetch(ajaxUrl, {
             method: 'POST',
@@ -81,7 +80,7 @@ export default function ImportAPI(props) {
         const jsonData = await response.json();
          setApiData(jsonData.data);
         console.log('getData...');
-        dispatch(tmplLodaing('Importing XML Data...'));
+        dispatch(tmplLodaing('Importing Content'));
 
       importXml(jsonData.data.xml);
       }
@@ -101,8 +100,8 @@ const hendelXmlImport = async (xml_data) => {
       var data = JSON.parse( message.data );
       switch ( data.action ) {
         case 'updateDelta':
-          dispatch(tmplLodaing('import - '+data.type));
-          console.log('updateDelta'+data.type);
+          dispatch(tmplLodaing('Importing - '+data.type));
+          console.log(data.type);
             ThemehunkSSEImport.updateDelta( data.type, data.delta );
           break;
 
@@ -110,7 +109,7 @@ const hendelXmlImport = async (xml_data) => {
            evtSource.close();
           // 2. Pass - Import XML though "Source Event".
           console.log('XML importing completed.');
-          dispatch(tmplLodaing('XML importing completed.'));
+          dispatch(tmplLodaing('Importing Design & Logo'));
 
           setupdateStart(true);
       //  $(document).trigger( 'themehunk-sites-import-xml-success' );
@@ -140,11 +139,7 @@ const importXml = async (xml_url) =>{
         }).then(response => response.json())
             .then(xml_data => {
 
-              console.log(xml_data);
-              dispatch(tmplLodaing('XML Data importing start..'));
-
                 // Handle the AJAX response
-                console.log('XML importing start...');
                 console.log(xml_data.data);
                 hendelXmlImport(xml_data.data);
 
@@ -164,7 +159,6 @@ const importXml = async (xml_url) =>{
        */
 
 const importCustomizer = async () =>{
-  dispatch(tmplLodaing('import - customizer data ..'));
 
     try {
   
@@ -178,22 +172,13 @@ const importCustomizer = async () =>{
         }),
     })
 
-    // const resData = await response.json();
-    // console.log('customizer updated...',resData);
-    //    return resData;
-
     .then(response => response.json())
         .then(customizer_data => {
             // Handle the AJAX response
             console.log('customizer updated...',customizer_data);
-            dispatch(tmplLodaing('Completed - customizer data imported ..'));
+            
 
             return customizer_data;
-            // return new Promise((resolve, reject) => {
-            //   console.log(' customizer-success');
-            //   console.log(customizer_data);
-            //   resolve();
-            // })
             
             // Perform any further actions with the response
         })
@@ -214,7 +199,6 @@ const importCustomizer = async () =>{
        */
 
 const importOptions = async () =>{
-  dispatch(tmplLodaing('Import - Logo and Theme color ...'));
 
   try {
 
@@ -229,12 +213,10 @@ const importOptions = async () =>{
   }).then(response => response.json())
       .then(options_dat => {
           // Handle the AJAX respons
-
+    
           return new Promise((resolve, reject) => {
-            dispatch(tmplLodaing('Completed - Logo and Theme color.'));
-
-            console.log(' Options-success');
             console.log(options_dat);
+            
             resolve();
           })
           
@@ -257,8 +239,7 @@ const importOptions = async () =>{
        */
 
       const importWidgets = async () =>{
-        dispatch(tmplLodaing('Import - footer & sidebar widgets ...'));
-
+    
         try {
           const dataToSend = { data: apiData.widgets }; // Customize the data to send
       
@@ -272,9 +253,7 @@ const importOptions = async () =>{
             .then(options_dat => {
                 // Handle the AJAX response      
                   console.log(' Widgets-success');
-                  dispatch(tmplLodaing('Completed - footer & sidebar widgets ...'));
-                  dispatch(tmplLodaing('Webiste Imported Successfully.'));
-
+                  
                   console.log(options_dat);
                 return options_dat;
                 // Perform any further actions with the response
@@ -290,26 +269,37 @@ const importOptions = async () =>{
       }
 
 
+      const interval = () => setTimeout(() => {
+        dispatch(tmplLodaing('Finishing Setup...'));
+      }, 3000);
+
       const executeStart = async () => {
         setupdateStart(false);
         console.log(apiData,'----apiData');
 
         try {
+          dispatch(tmplLodaing('Updating all Settings.'));
          await importCustomizer();
           console.log('customizer stop');
+          dispatch(tmplLodaing('Importing Footer & Sidebar...'));
           await importOptions();
           console.log('options stop');
-
+          dispatch(tmplLodaing('Getting Things Done...'));
+          interval();
           await importWidgets();
           console.log('widgets stop');
+         
           setApiData(null);
           dispatch(stepFour(true));
+
           return;
         } catch (error) {
           console.error('Error executing functions:', error);
         }
 
       };
+
+     
 
 
       useEffect(() => {

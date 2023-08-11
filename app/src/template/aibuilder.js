@@ -1,4 +1,4 @@
-import { useState,useEffect  } from '@wordpress/element';
+import { useState  } from '@wordpress/element';
 import SkeletonLoader from './skeleton-loader';
 import SidebarCategory from './sidebarcategory';
 import SiteTemplate from './sitetemplate';

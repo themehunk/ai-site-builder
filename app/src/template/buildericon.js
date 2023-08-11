@@ -98,19 +98,19 @@ const MenuProps = {
           <MenuItem value='elementor'>
           
           <div className={`column-icon ${bulderType=='elementor'?'active':'icon'}`} id="elementor" onClick={()=>handelIconClick('elementor')}>
-        <img src={`${AISB.pluginpath}json/svg/elementor.svg`} alt="Elementor Template" />
+        <img src={`${AISB.pluginpath}app/assets/svg/elementor.svg`} alt="Elementor Template" />
         <div className="image-text-builder-icon">Elementor</div>
         </div>
           
           </MenuItem>
           <MenuItem value={'gutenberg'}>
           <div className={`column-icon ${bulderType=='gutenberg'?'active':'icon'}`} id="gutenberg" onClick={()=>handelIconClick('gutenberg')}>
-        <img src={`${AISB.pluginpath}json/svg/block.svg`}  alt="Block Templates" />
+        <img src={`${AISB.pluginpath}app/assets/svg/block.svg`}  alt="Block Templates" />
         <div className="image-text-builder-icon" >Gutenberg</div>
         </div>
           </MenuItem>
           <MenuItem value={'customizer'}><div className={`column-icon ${bulderType=='customizer'?'active':'icon'}`} id="customizer" onClick={()=>handelIconClick('customizer')}>
-        <img src={`${AISB.pluginpath}json/svg/customizer.svg`} alt="Customizer Template" />
+        <img src={`${AISB.pluginpath}app/assets/svg/customizer.svg`} alt="Customizer Template" />
         <div className="image-text-builder-icon">Customizer</div>
         </div></MenuItem>
         </Select>

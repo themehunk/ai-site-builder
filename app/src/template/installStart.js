@@ -1,115 +1,112 @@
 import { useState,useEffect } from '@wordpress/element';
-import { Button, Flex, FlexBlock, FlexItem,  __experimentalText as Text,
-  __experimentalVStack as VStack, CheckboxControl  } from '@wordpress/components';
+import { Button, Flex, FlexBlock, FlexItem } from '@wordpress/components';
 import axios from 'axios';
-import wpPlugins from '../../../json/plugins.json';
-import animationLoading  from '../../../json/lottie/loading';
-import animationProgress  from '../../../json/lottie/progress';
+import wpPlugins from '../../assets/json/plugins.json';
+import animationLoading  from '../../assets/lottie/loading';
+import animationProgress  from '../../assets/lottie/progress';
 import ImportAPI from './importapi';
 import { getQueryArg } from '@wordpress/url';
 import { useSelector, useDispatch } from 'react-redux';
 import {tmplLodaing} from '../actions';
-import { Icon, arrowRight,chevronLeftSmall } from '@wordpress/icons';
 import Lottie from 'react-lottie';
-import { HomeLink, Logo, Upgrade } from '../aisb';
+import { Logo, Upgrade } from '../aisb';
 
 function getThemeData(type){
 
   let thCustomizer = 'themehunk-customizer';
   let hunkCompanion = 'hunk-companion';
 
-  
 const themeList = [ { 
   shopmania:[
   {
-  type:'plugin', template: 'free', name: 'th-shop-mania',free:hunkCompanion,paid:'th-shop-mania-pro'
+  type:'plugin', template: 'free', name: 'th-shop-mania',free:hunkCompanion,paid:'th-shop-mania-pro',builder:'elementor'
   }
 ],
 gutenberg:[
   {
-  type:'plugin', template: 'free', name: 'th-shop-mania',free:hunkCompanion,paid:'th-shop-mania-pro'
+  type:'plugin', template: 'free', name: 'th-shop-mania',free:hunkCompanion,paid:'th-shop-mania-pro',builder:'gutenberg'
   }
 ],
 topstore:[
 { 
-  type:'theme', template: 'free', name: 'top-store',free:hunkCompanion,paid:'top-store-pro' 
+  type:'theme', template: 'free', name: 'top-store',free:hunkCompanion,paid:'top-store-pro', builder:'customizer'
 },
 ],
 openshop:[
 { 
-  type:'theme', template: 'free', name: 'open-shop',free:hunkCompanion,paid:'openshop-pro' 
+  type:'theme', template: 'free', name: 'open-shop',free:hunkCompanion,paid:'openshop-pro' , builder:'customizer'
 },
 ],
 
 openmart:[
 { 
-  type:'plugin', template: 'free', name: 'open-mart',free:hunkCompanion,paid:'open-mart-pro' 
+  type:'plugin', template: 'free', name: 'open-mart',free:hunkCompanion,paid:'open-mart-pro' , builder:'customizer'
 },
 ],
 
 almaira:[
 { 
-  type:'theme', template: 'free', name: 'almaira-shop',free:hunkCompanion,paid:'almaira' 
+  type:'theme', template: 'free', name: 'almaira-shop',free:hunkCompanion,paid:'almaira' , builder:'customizer'
 },
 ],
 
 gogo:[
 { 
-  type:'plugin', template: 'free', name: 'th-shop-mania',free:hunkCompanion,paid:'gogo-pro' 
+  type:'plugin', template: 'free', name: 'th-shop-mania',free:hunkCompanion,paid:'gogo-pro' , builder:'customizer'
 },
 ],
 
 portfolioline:[
   { 
-    type:'theme', template: 'free', name: 'portfolioline',free:hunkCompanion,paid:'portfolioline' 
+    type:'theme', template: 'free', name: 'portfolioline',free:hunkCompanion,paid:'portfolioline' , builder:'customizer'
   },
 ],
 
 
 amazstore:[
 { 
-  type:'plugin', template: 'free', name: 'amaz-store',free:thCustomizer,paid:'amaz-store-pro' 
+  type:'plugin', template: 'free', name: 'amaz-store',free:thCustomizer,paid:'amaz-store-pro' , builder:'customizer'
 },
 ],
 
 
 bigstore:[
 { 
-  type:'plugin', template: 'free', name: 'big-store',free:thCustomizer,paid:'big-store-pro' 
+  type:'plugin', template: 'free', name: 'big-store',free:thCustomizer,paid:'big-store-pro' , builder:'customizer'
 },
 ],
 
 jotshop:[
 { 
-  type:'plugin', template: 'free', name: 'jot-shop',free:thCustomizer,paid:'jot-shop-pro' 
+  type:'plugin', template: 'free', name: 'jot-shop',free:thCustomizer,paid:'jot-shop-pro' , builder:'customizer'
 },
 ],
 
 mshop:[
 { 
-  type:'plugin', template: 'free', name: 'm-shop',free:thCustomizer,paid:'m-shop-pro'
+  type:'plugin', template: 'free', name: 'm-shop',free:thCustomizer,paid:'m-shop-pro', builder:'customizer'
 },
 ],
 shopline:[
 { 
-  type:'theme', template: 'free', name: 'shopline',free:thCustomizer,paid:'shopline-pro'
+  type:'theme', template: 'free', name: 'shopline',free:thCustomizer,paid:'shopline-pro', builder:'customizer'
 },
 ],
 
 oneline:[
 { 
-  type:'theme', template: 'free', name: 'oneline',free:thCustomizer,paid:'oneline'
+  type:'theme', template: 'free', name: 'oneline',free:thCustomizer,paid:'oneline', builder:'customizer'
 },
 ],
 
 featured:[
 { 
-  type:'theme', template: 'free', name: 'featured',free:thCustomizer,paid:'featured'
+  type:'theme', template: 'free', name: 'featured',free:thCustomizer,paid:'featured', builder:'customizer'
 },
 ],
 novelpro:[
   { 
-    type:'self', template: 'free', name: 'novellite',free:thCustomizer,paid:'novelpro'
+    type:'self', template: 'free', name: 'novellite',free:thCustomizer,paid:'novelpro', builder:'customizer'
   },
 ]
 }
@@ -147,6 +144,7 @@ export default function installStart(props){
 
   // get theme name
   const getThemeName = () => {
+    console.log(props.templateData.api_url);
     return getQueryArg( props.templateData.api_url, 'theme' );
   }
 
@@ -162,13 +160,29 @@ export default function installStart(props){
     }
   }
 
+  const getBuilderName = (type='') =>{
+    const thmeType = getThemeData(props.templateData.builder_theme);
+    return thmeType.builder;
+  }
+
   // plugin and theme install
         const process = async () =>{
 
+          const params =  {
+            templateType: props.templateData.free_paid,
+            plugin: props.templateData.plugin,
+            allPlugins:wpPlugins,
+            builder:props.templateData.builder_theme,
+            themeSlug:getThemeName(),
+            proThemePlugin:getPluginName('free'),
+            tmplFreePro:getPluginName()
+          }
+
+console.log(params);
+
   
           console.log(props.templateData.plugin);
-          dispatch(tmplLodaing('Theme & Plugin Installing...'));
-
+      
             try {
                 await axios.post(AISB.baseurl+'wp-json/ai/v1/ai-site-builder', {
                     params: {
@@ -182,9 +196,8 @@ export default function installStart(props){
                     }
                   })
                   .then(function (response) {
-                    dispatch(tmplLodaing('Theme & Plugin Installation Completed.'));
+                    dispatch(tmplLodaing('Importing Server Data..'));
                     console.log(response.data);
-                    console.log('----------------- theme and plugin install completetd----------------------------\n');
                     setApiUrl(props.templateData.api_url);
                   })
                   .catch(function (error) {
@@ -201,6 +214,7 @@ export default function installStart(props){
 
 
         useEffect(() => {
+          dispatch(tmplLodaing('Getting Started...'));
           process();       
         }, []); // 👈️ empty dependencies array
 
@@ -222,18 +236,16 @@ export default function installStart(props){
           }
         };
 
-
 return(<div className='aisb-site-build-wrap'>
   
   <div className='aisb-site-build'>
-                <Flex>
+                <Flex className='header'>
                     <FlexItem>
                     <Logo/>
                     </FlexItem>
 
                     <FlexItem> <div className="header-text">
             <Upgrade/>
-            <HomeLink/>
             </div></FlexItem>
                 </Flex>
             </div>
@@ -244,7 +256,11 @@ return(<div className='aisb-site-build-wrap'>
  
               <Lottie options={defaultLoading} height={300} />
               <Lottie options={defaultProgress} width={300} />
+
+              {  apiUrl===null && <span className='loading-msg'>{lodaingMsg}</span>}
               {  apiUrl && <ImportAPI apiurl = {apiUrl}  />}
+
+
                 </div>
             </div>
   </div>);
