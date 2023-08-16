@@ -2,7 +2,7 @@
 Contributors:      AI Site Builder
 Tags:              block plugin
 Tested up to:      5.9
-Stable tag:        0.1.0
+Stable tag:        0.1.2
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,11 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 0.1.2 =
+* Category and builder filter issue fixed.
+* Upgrade pro button active.
+* ALl theme json call in redux file.
 
 = 0.1.1 =
 * Design issue complete.

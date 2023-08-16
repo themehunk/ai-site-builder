@@ -1,15 +1,17 @@
-export const addCategory = (cate) =>{
-      return { 
-        type: "ADD",
-        payload:cate
-         }
+export const templateData = (builder,cate) =>{
+  return { 
+    type: "TEMPLATE_DATA",
+    payload:builder,
+    cate:cate,
+     }
 }
 
-export const removeCategory = (cate) =>{
-  return { 
-    type: "REMOVE",
-    payload:cate
-   }
+export const addCateBuilder = (cate,builder) =>{
+      return { 
+        type: "CATE_BUILDER",
+        payload:cate,
+        builderload:builder
+         }
 }
 
 export const addTrueFalse = (payload) =>{

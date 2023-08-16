@@ -189,9 +189,17 @@ border-bottom-right-radius: 60px 60px;
 }
 
 .aisb-app-wrap .header{
+  text-align: center;
   width: 84%;
   margin: 0px 8%;
 }
+
+
+/* .iframe-footer {
+  text-align: center;
+  width: 84%;
+  margin-left: 8%;
+} */
 
 header {
     padding: 20px 10px;
@@ -220,10 +228,16 @@ header {
     border: 0;
     font-weight: 600;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .header-text b{
   color: #fff;
+}
+
+.header-text.center {
+  flex-grow: 1;
+  text-align: center;
 }
   
   .header-text {
@@ -269,6 +283,11 @@ header {
     justify-content: center;
     margin-top: 4rem;
     margin-bottom: 4rem;
+    
+  }
+
+  .aisb-builder-icon .aisb-catelist,.MuiMenu-list {
+    text-transform: capitalize;
   }
 
   .aisb-builder-icon .column-icon, .MuiMenu-list .column-icon  {
@@ -486,11 +505,7 @@ header {
 
 /** Iframe popup Footer **/
 
-.iframe-footer {
-  text-align: center;
-  width: 68%;
-  margin-left: 15%;
-}
+
 .aisb-back h3 {
   margin-top: 7px !important;
 }
@@ -521,7 +536,7 @@ fill: #ffff;
 
 .aisb-back .close svg{
   fill: #8535c6;
-  padding-top: 4px;
+  padding-top: 5px;
 }
 .aisb-back .close {
      color: #8535c6;
@@ -692,7 +707,38 @@ iframe{
         text-align: center;
       }
     
-  /*** Step Three Build Website **/
+  /*** Step Three Build Website and loading start
+      Shining Text Animation Effects
+  **/
+
+
+  
+.loading-msg {
+  display: inherit;
+  margin-top: 30px;
+  font-weight: 600;
+  background: linear-gradient(89deg, #343336, #fff, #212122);
+  letter-spacing: 1px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: #2a292c4a;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: shine 8s linear infinite;
+  position: relative;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+@keyframes shine {
+0% {
+  background-position-x: -500%;
+}
+100% {
+  background-position-x: 500%;
+}
+}
+
 
   .aisb-site-build-wrap .aisb-site-build {
     padding: 15px;
@@ -719,7 +765,7 @@ iframe{
 
 .aisb-site-build-wrap .aisb-site-main {
     width: 30%;
-    margin-left: 33%;
+    margin-left: 30%;
     background: #ffffff;
     padding: 20px 50px;
     margin-top: 5%;
@@ -802,10 +848,16 @@ input[type=text]:focus{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .aisb-site-form  .aisb-install-btn b,
-  .aisb-site-form  .aisb-border-btn b{
+  .aisb-site-form .aisb-install-btn b,
+  .aisb-site-form .aisb-border-btn b{
     margin-right: 5px;;
   }
+
+  .aisb-site-form .aisb-install-btn b{
+      margin-left: 8px;
+      display: block;
+  
+    }
 
 
   .aisb-site-form .btn-center {
@@ -826,7 +878,7 @@ input[type=text]:focus{
 
 .aisb-site-options label::before {
   content: "";
-  background: url("../../../json/svg/check-circle.svg");
+  background: url("../../../app/assets/svg/check-circle.svg");
   background-position: center;
   background-size: contain;
   width: 20px;
@@ -841,6 +893,15 @@ input[type=text]:focus{
 .aisb-site-options input[type="checkbox"]:checked + label::before {
   transform: scale(1) rotateZ(0deg);
 }
+
+.aisb-site-options #themes:checked + label::before,
+.aisb-site-options #plugins:checked + label::before,
+.aisb-site-options #themes:checked + label::after,
+.aisb-site-options #plugins:checked + label::after{
+  opacity: 0.6;
+
+}
+
 
 .aisb-site-options label::after {
   content: "";

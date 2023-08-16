@@ -2,9 +2,9 @@ import { useState  } from '@wordpress/element';
 import SkeletonLoader from './skeleton-loader';
 import SidebarCategory from './sidebarcategory';
 import SiteTemplate from './sitetemplate';
-import SidebarInstall from './sidebarInstall';
+import IframeTemplate from './IframeTemplate';
 import { useSelector, useDispatch } from 'react-redux';
-import {addCategory,removeCategory,stepOne,stepTwo,stepThree} from '../actions';
+import {stepOne,stepTwo,stepThree} from '../actions';
 import InstallStart from './installStart';
 import BuildWibsite from './buildwebsite';
 import Success from './success';
@@ -12,7 +12,7 @@ import Success from './success';
 
 
 export default function AiBuilder(props) {
-  const myState = useSelector((state)=>state.changeCategory);
+  const myState = useSelector((state)=>state.templateSelect);
   const pageStep = useSelector((state)=>state.stepLoad);
   const dispatch = useDispatch();
   console.log(myState);
@@ -52,10 +52,6 @@ export default function AiBuilder(props) {
         }, 2000);
        
        }
-       const categoryAddRemove = (ischecked,cate) =>{
-        
-          ischecked?dispatch(addCategory(cate)):dispatch(removeCategory(cate));
-       }
 
       const installHandel = ()=>{
         dispatch(stepTwo(true));
@@ -63,11 +59,8 @@ export default function AiBuilder(props) {
        setStepThree(true);
        }
 
-
-       console.log(pageStep);
     return (<>
         <div class="aisb-container-main-tmpl">
-        {/* <SidebarCategory categoryAddRemove = {(ischecked,cate)=>categoryAddRemove(ischecked,cate)}/> */}
         <SiteTemplate  datatemp={(jdata)=>handeldata(jdata)} builderHide = {props.builder}/>
       </div>
       <div id="myModal" class="aisb-model modal">
@@ -83,7 +76,7 @@ export default function AiBuilder(props) {
       {pageStep.iframe &&  <div class="aisb-container-demo-tmpl theme-install-overlay-stop wp-full-overlay-stop expanded-stop">
               <div class="left-column wp-full-overlay-sidebar-stop" id="sidebarModel">
               
-              {templateData !== null && <SidebarInstall templateData={templateData} installHandel = {()=>installHandel()}/>}
+              {templateData !== null && <IframeTemplate templateData={templateData} installHandel = {()=>installHandel()}/>}
 
               </div>
               <div class="right-column-demo modal-content wp-full-overlay-main" id="iframeModel">

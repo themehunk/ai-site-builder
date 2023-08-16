@@ -1,31 +1,14 @@
 import { useState,useEffect  } from '@wordpress/element';
-
-import shopmania from '../../assets/json/th-shop-mania.json';
-import gutenberg from '../../assets/json/gutenberg.json';
-import jotshop from '../../assets/json/jotshop.json';
-import bigstore from '../../assets/json/big-store.json';
-import almaira from '../../assets/json/almaira.json';
-import amazstore from '../../assets/json/amaz-store.json';
-import featured from '../../assets/json/featured.json';
-import gogo from '../../assets/json/gogo.json';
-import mshop from '../../assets/json/m-shop.json';
-import novelpro from '../../assets/json/novelpro.json';
-import oneline from '../../assets/json/oneline.json';
-import openmart from '../../assets/json/open-mart.json';
-import openshop from '../../assets/json/openshop-pro.json';
-import portfolioline from '../../assets/json/portfolioline.json';
-import royalshop from '../../assets/json/royal-shop.json';
-import shopline from '../../assets/json/shopline-pro.json';
-import topstore from '../../assets/json/top-store-pro.json';
-
 import SkeletonLoader from './skeleton-loader';
 import { useSelector, useDispatch } from 'react-redux';
 import {addTrueFalse} from '../actions';
 
+
 export default function SiteTemplate(props) {
+
   const loader = useSelector((state)=>state.trueFalse);
+  const jsonData = useSelector((state)=>state.templateData);
   const dispatch = useDispatch();
-  
 
 const imageHandel = (template)=> {
   dispatch(addTrueFalse(false));
@@ -64,75 +47,49 @@ const tmplStyleShow = {
   display: 'block',
 };
 
-const customizer = ['topstore','big-store','openshop-pro','jotshop','open-mart,','m-shop','shopline-pro','amaz-store','almaira','gogo','novelpro','oneline','portfolioline','featured'];
+const customizer = ['topstore','top-store-pro','big-store','openshop-pro','jotshop','open-mart','m-shop','shopline-pro','amaz-store','almaira','gogo','novelpro','oneline','portfolioline','featured'];
 const elementor = ['th-shop-mania','elementor','royal-shop'];
-const catearr = useSelector((state)=>state.changeCategory);
 
-const catgeryMap = (cate,displayShow) =>{
+const gutenbergtmpl = ['th-shop-mania','blockline','blockline-pro','blur','blur-pro','gutenberg'];
 
-  if(Object.values(cate).includes(catearr)){
-    return displayShow;
-  }else{
-   return tmplStyleHide;
-  }
-
-  // Object.values(cate).map(value => {
-  //       if(catearr.includes(value)){
-  //         console.log(true);
-  //       }else{
-  //         console.log(false);
-  //       }
-
-    // catearr.includes(value)?displayShow:tmplStyleHide;
-// })
-
-}
-
-const builderHandel = (builder,cate) => {
-
-
-
+const builderHandel = (builder) => {
   if (customizer.includes(builder)) {
-     builder = 'customizer';
+    return 'customizer';
   } else if(elementor.includes(builder)){
-     builder = 'elementor';
-  }
- 
-
-  if(props.builderHide===null || builder===props.builderHide){
-    
-    return  catgeryMap(cate,tmplStyleShow);
-  }else{
-    return tmplStyleHide;
-
-  }
+    return 'elementor';
+  } else if(gutenbergtmpl.includes(builder)){
+    return 'gutenberg';
+ }
 
 }
 
-//const jsonData = shopmania.concat(gutenberg,bigstore,jotshop);
 
 
-const jsonData = shopmania.concat(gutenberg,bigstore,jotshop,topstore,almaira,amazstore,openshop,
-  mshop,gogo,novelpro,oneline,openmart,shopline,portfolioline,royalshop,featured);
-  
 return (
-        <div class="right-column-delet asib-main-tmpl">
-
+        <div class="asib-main-tmpl">
 {loader==false && <SkeletonLoader/>}
 
 {loader && <div class="image-container">
-    {jsonData.sort((a, b) => a.name > b.name ? -1 : 1).map((template) => {
-        return (<div className={`column builder-${template.builder_theme}`} style={builderHandel(template.builder_theme,template.category)} onClick={() => imageHandel(JSON.stringify(template))} >
-      <div className='asib-tmpl-column'><div class="aisb-tmpl-item" data-id={template.id}>
-      </div>
-      <img id="myImg" demourl={template.demo_url} src={template.thumb} alt={template.title} />
-        <div className='asib-tmpl-footer'>
-          <h3>{template.title}</h3>
-          {template.free_paid =="paid" && <span className='aisb-pro'>PREMIUM</span>}
-        </div>
-      </div>
-    </div>);
-      })}
+
+      { jsonData.sort((a, b) => a.name > b.name ? -1 : 1).map((template,index) => {
+
+      //const combinedClasses =  Object.values(template.category).join(' ');
+
+     // Object.values(template.newcate).includes('cloth') && console.log((template.newcate), 'dataisone');
+
+    
+  return (<div key={index} className={`column builder-${builderHandel(template.builder_theme)}` }  onClick={() => imageHandel(JSON.stringify(template))} >
+<div className='asib-tmpl-column'><div class="aisb-tmpl-item" data-id={template.id}>
+</div>
+<img id="myImg" demourl={template.demo_url} src={template.thumb} alt={template.title} />
+  <div className='asib-tmpl-footer'>
+    <h3>{template.title}</h3>
+    {template.free_paid =="paid" && <span className='aisb-pro'>PREMIUM</span>}
+  </div>
+</div>
+</div>);
+
+})}
   </div>}
 </div>
     );

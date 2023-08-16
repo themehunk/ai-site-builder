@@ -1,29 +1,57 @@
 import { useState  } from '@wordpress/element';
-
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
+import { useSelector, useDispatch } from 'react-redux';
+import {addCateBuilder,templateData} from '../actions';
+
+// const [selectCate, setSelectCate] = useState('');
+
+// <style dangerouslySetInnerHTML={{ __html: selectCate }} />
+// //  const styleContent = `
+
+// // .${builder}.${event.target.value} {
+// //    display: block !important;
+// //  }
+// // `;
+
 
 export default function BuilderIcon(props) {
+  const jsonData = useSelector((state)=>state.templateData);
+
+
+  const getCate = useSelector((state)=>state.templateSelect);
+
+  console.log(getCate.cate);
+  const dispatch = useDispatch();
+
+
+
 
   const [ bulderType, setbulderType ] = useState(null);
-
   const [builder, setBuilder] = useState('elementor');
   const [iscate, setisCate] = useState('all');
 
 
   const handleBuilder = (event) => {
     setBuilder(event.target.value);
+    dispatch(addCateBuilder(iscate,event.target.value));
+    dispatch(templateData(event.target.value,iscate));
+
   };
 
 
   const handleCate = (event) => {
     setisCate(event.target.value);
+    dispatch(addCateBuilder(event.target.value,builder));
+
+    dispatch(templateData(builder,event.target.value));
+
+
+
   };
-
-
 
     const handelIconClick =(type)=>{
       props.builderclick(type);
@@ -78,14 +106,10 @@ const MenuProps = {
 
 
 
-    const category = ['all','business','ecommerce','free','education','all','business','ecommerce','free','education','all','business','ecommerce','free','education'];
-    const handelCategory = (event) =>{
-     props.categoryAddRemove(event.target.checked,event.target.value);
-    }
+    const category = ['all','free','ecommerce','woocommmerce','multipurpose','business','portfolio','travel','music','landing-page','real-estate'];
 
 
     return (<div className="aisb-builder-icon">
-
       <FormControl sx={{ m: 1, minWidth: 260 }} variant="standard" >
         <Select
           labelId="demo-select-small-labe"
@@ -95,28 +119,28 @@ const MenuProps = {
           onChange={handleBuilder}
           input={<BootstrapInput />}
         >
-          <MenuItem value='elementor'>
+          <MenuItem value='elementor' onClick={()=>handelIconClick('elementor')}>
           
-          <div className={`column-icon ${bulderType=='elementor'?'active':'icon'}`} id="elementor" onClick={()=>handelIconClick('elementor')}>
+          <div className={`column-icon ${bulderType=='elementor'?'active':'icon'}`} id="elementor" >
         <img src={`${AISB.pluginpath}app/assets/svg/elementor.svg`} alt="Elementor Template" />
         <div className="image-text-builder-icon">Elementor</div>
         </div>
           
           </MenuItem>
-          <MenuItem value={'gutenberg'}>
-          <div className={`column-icon ${bulderType=='gutenberg'?'active':'icon'}`} id="gutenberg" onClick={()=>handelIconClick('gutenberg')}>
+          <MenuItem value={'gutenberg'} onClick={()=>handelIconClick('gutenberg')}>
+          <div className={`column-icon ${bulderType=='gutenberg'?'active':'icon'}`} id="gutenberg" >
         <img src={`${AISB.pluginpath}app/assets/svg/block.svg`}  alt="Block Templates" />
         <div className="image-text-builder-icon" >Gutenberg</div>
         </div>
           </MenuItem>
-          <MenuItem value={'customizer'}><div className={`column-icon ${bulderType=='customizer'?'active':'icon'}`} id="customizer" onClick={()=>handelIconClick('customizer')}>
+          <MenuItem value={'customizer'} onClick={()=>handelIconClick('customizer')}><div className={`column-icon ${bulderType=='customizer'?'active':'icon'}`} id="customizer" >
         <img src={`${AISB.pluginpath}app/assets/svg/customizer.svg`} alt="Customizer Template" />
         <div className="image-text-builder-icon">Customizer</div>
         </div></MenuItem>
         </Select>
       </FormControl>
 
-      <FormControl sx={{ m: 1, minWidth: 260 }} variant="standard">
+      <FormControl className = "aisb-catelist" sx={{ m: 1, minWidth: 260 }} variant="standard">
         <Select
           value={iscate}
           onChange={handleCate}
@@ -128,8 +152,8 @@ const MenuProps = {
           input={<BootstrapInput />}
 
         >
-          {category.map((cate) => 
-          <MenuItem onChange={handelCategory}  value={cate}> {cate} </MenuItem>
+          {category.map((cate,index) => 
+          <MenuItem  value={cate}> {cate} </MenuItem>
 
           )}
         </Select>

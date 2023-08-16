@@ -18,7 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
   
-export default function sidebarInstall(props) {
+export default function IframeTemplate(props) {
   const dispatch = useDispatch();
   const myState = useSelector((state)=>state.trueFalse);
 
@@ -45,6 +45,8 @@ const nextInstall = ()=>{
 }
 
 console.log(props.templateData);
+console.log(props.templateData.free_paid,'free-paid');
+
     return (<div className='iframe-footer header'>
         <Flex>
               <FlexItem>
@@ -53,13 +55,20 @@ console.log(props.templateData);
             </div>
               </FlexItem>
               <FlexBlock>
-              <div>
               
-              <span onClick={()=>nextInstall()} className='aisb-install-btn'>Create Website<b><Icon size ={22} icon={ arrowRight } /></b></span></div>
+              
+              {props.templateData.free_paid==='free' &&  <div><span onClick={()=>nextInstall()} className='aisb-install-btn'>Create Website<b><Icon size ={22} icon={ arrowRight } /></b></span></div> }
+              
+              {props.templateData.free_paid==='paid' && <div className="header-text center" onClick={()=>nextInstall()}>
+              <Upgrade version={false}/>
+              </div>}
+              
               </FlexBlock>
               <FlexItem>
               <div className="header-text">
-                <Upgrade />
+              {props.templateData.free_paid==='free' && <Upgrade />}
+
+              {props.templateData.free_paid==='paid' && <Upgrade  btn={false}/>}
             </div>
               </FlexItem>
             </Flex>

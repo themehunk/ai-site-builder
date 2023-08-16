@@ -4,7 +4,6 @@ import Header from './template/header';
 import BuilderIcon from './template/buildericon';
 import AiBuilder from './template/aibuilder';
 import { getQueryArg } from '@wordpress/url';
-
 import Dashboard from './template/dashboard';
 
 export default function App() {
@@ -35,7 +34,6 @@ export default function App() {
     return (
       <div className="App">
    
-
    {pageChange && <div className="aisb-app-wrap">
             <Header/>
         <div className='heading'>

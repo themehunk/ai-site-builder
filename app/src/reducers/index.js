@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
-import {changeCategory,trueFalse,tmplInstall,stepLoad} from "./temperature";
+import {templateData,templateSelect,trueFalse,tmplInstall,stepLoad} from "./temperature";
 
-
-const rootReducer = combineReducers( { changeCategory,trueFalse,tmplInstall,stepLoad } );
+const rootReducer = combineReducers( { templateData,templateSelect,trueFalse,tmplInstall,stepLoad } );
 
 export default rootReducer;

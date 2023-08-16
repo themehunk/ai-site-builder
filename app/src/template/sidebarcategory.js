@@ -7,7 +7,7 @@ import FormLabel from '@mui/material/FormLabel';
 export default function SidebarCategory(props) {
 
 
-  const category = ['all','business','ecommerce','free','education'];
+  const category = ['all','business','ecommerce','free','educations'];
   const handelCategory = (event) =>{
    props.categoryAddRemove(event.target.checked,event.target.value);
   }

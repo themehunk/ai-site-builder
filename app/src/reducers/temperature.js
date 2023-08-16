@@ -1,11 +1,51 @@
-const initialState = "all";
+import shopmania from '../../assets/json/th-shop-mania.json';
+import gutenberg from '../../assets/json/gutenberg.json';
+import jotshop from '../../assets/json/jotshop.json';
+import bigstore from '../../assets/json/big-store.json';
+import almaira from '../../assets/json/almaira.json';
+import amazstore from '../../assets/json/amaz-store.json';
+import featured from '../../assets/json/featured.json';
+import gogo from '../../assets/json/gogo.json';
+import mshop from '../../assets/json/m-shop.json';
+import novelpro from '../../assets/json/novelpro.json';
+import oneline from '../../assets/json/oneline.json';
+import openmart from '../../assets/json/open-mart.json';
+import openshop from '../../assets/json/openshop-pro.json';
+import portfolioline from '../../assets/json/portfolioline.json';
+import royalshop from '../../assets/json/royal-shop.json';
+import shopline from '../../assets/json/shopline-pro.json';
+import topstore from '../../assets/json/top-store-pro.json';
+const jsonData = shopmania.concat(gutenberg,bigstore,jotshop,topstore,almaira,amazstore,openshop,
+    mshop,gogo,novelpro,oneline,openmart,shopline,portfolioline,royalshop,featured);
 
-const changeCategory = ( state = initialState, action) =>{
+const gutenbergtmpl = ['th-shop-mania','blockline','blockline-pro','blur','blur-pro','gutenberg'];
+const customizer = ['topstore','top-store-pro','big-store','openshop-pro','jotshop','open-mart','m-shop','shopline-pro','amaz-store','almaira','gogo','novelpro','oneline','portfolioline','featured'];
+const elementor = ['th-shop-mania','elementor','royal-shop'];
+
+const builderHandel = (builder) => {
+        if (customizer.includes(builder)) {
+            return 'customizer';
+        } else if(elementor.includes(builder)){
+            return 'elementor';
+        } else if(gutenbergtmpl.includes(builder)){
+            return 'gutenberg';
+        }
+}
+
+const templateData = ( state = jsonData, action) =>{
 
     switch(action.type){
-        case "ADD" : return action.payload;
+        case "TEMPLATE_DATA" : return  jsonData.filter(template => builderHandel(template.builder_theme) === action.payload && Object.values(template.category).includes(action.cate));
 
-        case "REMOVE" : return action.payload;
+        default: return state;
+    }
+
+}
+
+const templateSelect = ( state = {cate:'all',builder:'elementor'}, action) =>{
+
+    switch(action.type){
+        case "CATE_BUILDER" : return {cate:action.payload,builder:action.builderload};
 
         default: return state;
     }
@@ -77,5 +117,5 @@ case "STEP4" : return {
 
 // case "REMOVE" : return state.filter(function(initialState) { return initialState !== action.payload });
 
-export {changeCategory, trueFalse,tmplInstall,stepLoad};
+export {templateData, templateSelect, trueFalse,tmplInstall,stepLoad};
 
