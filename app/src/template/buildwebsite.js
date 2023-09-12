@@ -58,6 +58,7 @@ return( <div className='aisb-site-build-wrap'>
                 
                     </div>
 
+                    {/* <div>
                     <h4>About You</h4>
                     <div className='aisb-site-about'>
                     <Flex>
@@ -70,6 +71,8 @@ return( <div className='aisb-site-build-wrap'>
                     </Flex>
                     <div className='aisb-iagree'><CheckboxControl label="I agree to receive Newsletter & Updates" /> </div>
                     </div>
+                    </div> */}
+
 
                     <div className='btn-center'><span className='aisb-install-btn' onClick={()=>dispatch(stepThree(true))}>Create Website<b><Icon size ={22} icon={ arrowRight } /></b></span></div>
                 </div>

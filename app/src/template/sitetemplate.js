@@ -1,10 +1,12 @@
 import { useState,useEffect  } from '@wordpress/element';
-import SkeletonLoader from './skeleton-loader';
+import {SkeletonSingle, SkeletonTemplate} from './skeleton-loader';
 import { useSelector, useDispatch } from 'react-redux';
 import {addTrueFalse} from '../actions';
 
 
 export default function SiteTemplate(props) {
+  const [loaded, setLoaded] = useState(false);
+  const [imgstyle, setImgstyle] = useState({display:'none'});
 
   const loader = useSelector((state)=>state.trueFalse);
   const jsonData = useSelector((state)=>state.templateData);
@@ -12,7 +14,6 @@ export default function SiteTemplate(props) {
 
 const imageHandel = (template)=> {
   dispatch(addTrueFalse(false));
-
   // Get the modal
   var parsedData = JSON.parse(template);
   props.datatemp(parsedData);
@@ -36,7 +37,6 @@ const imageHandel = (template)=> {
 //     document.body.style.overflow = "auto";
 //     modalImg.src = '';
 //   }
-
 }
 
 const tmplStyleHide = {
@@ -63,25 +63,36 @@ const builderHandel = (builder) => {
 
 }
 
+const imgload = () =>{
 
+  if(loaded===false){
+ setLoaded(true);
+ setImgstyle({display:'block'});
+  }
+
+}
+
+
+useEffect(() => {
+  setTimeout(() => {
+    dispatch(addTrueFalse(true));
+  }, 500); // 10000 milliseconds = 10 seconds
+  
+}, []);
 
 return (
         <div class="asib-main-tmpl">
-{loader==false && <SkeletonLoader/>}
+{/* {loader==false && <SkeletonTemplate/>} */}
 
-{loader && <div class="image-container">
-
-      { jsonData.sort((a, b) => a.name > b.name ? -1 : 1).map((template,index) => {
-
-      //const combinedClasses =  Object.values(template.category).join(' ');
-
-     // Object.values(template.newcate).includes('cloth') && console.log((template.newcate), 'dataisone');
-
-    
+{<div class="image-container">
+      { jsonData.sort((a, b) => a.name > b.name ? -1 : 1).map((template,index) => {    
   return (<div key={index} className={`column builder-${builderHandel(template.builder_theme)}` }  onClick={() => imageHandel(JSON.stringify(template))} >
 <div className='asib-tmpl-column'><div class="aisb-tmpl-item" data-id={template.id}>
 </div>
-<img id="myImg" demourl={template.demo_url} src={template.thumb} alt={template.title} />
+{loader!==true && <SkeletonSingle/> }
+
+<img id="myImg" demourl={template.demo_url} src={template.thumb} alt={template.title}  onLoad={imgload} style={imgstyle}/>
+
   <div className='asib-tmpl-footer'>
     <h3>{template.title}</h3>
     {template.free_paid =="paid" && <span className='aisb-pro'>PREMIUM</span>}

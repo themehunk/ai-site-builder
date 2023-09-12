@@ -15,12 +15,13 @@ import portfolioline from '../../assets/json/portfolioline.json';
 import royalshop from '../../assets/json/royal-shop.json';
 import shopline from '../../assets/json/shopline-pro.json';
 import topstore from '../../assets/json/top-store-pro.json';
-const jsonData = shopmania.concat(gutenberg,bigstore,jotshop,topstore,almaira,amazstore,openshop,
-    mshop,gogo,novelpro,oneline,openmart,shopline,portfolioline,royalshop,featured);
+const jsonData = shopmania.concat(gutenberg,openshop,gogo,bigstore,mshop,oneline,topstore,jotshop,novelpro,amazstore,featured,openmart,royalshop);
+// checking- almaira,shopline,portfolioline
+
 
 const gutenbergtmpl = ['th-shop-mania','blockline','blockline-pro','blur','blur-pro','gutenberg'];
-const customizer = ['topstore','top-store-pro','big-store','openshop-pro','jotshop','open-mart','m-shop','shopline-pro','amaz-store','almaira','gogo','novelpro','oneline','portfolioline','featured'];
-const elementor = ['th-shop-mania','elementor','royal-shop'];
+const customizer = ['topstore','royal-shop','top-store-pro','big-store','openshop-pro','jotshop','open-mart','m-shop','shopline-pro','amaz-store','almaira','gogo','novelpro','oneline','portfolioline','featured'];
+const elementor = ['th-shop-mania','elementor'];
 
 const builderHandel = (builder) => {
         if (customizer.includes(builder)) {
@@ -32,10 +33,12 @@ const builderHandel = (builder) => {
         }
 }
 
-const templateData = ( state = jsonData, action) =>{
+const defaultJsonData = jsonData.filter(template => builderHandel(template.builder_theme) === 'elementor' && template.category.includes('all'));
+
+const templateData = ( state = defaultJsonData, action) =>{
 
     switch(action.type){
-        case "TEMPLATE_DATA" : return  jsonData.filter(template => builderHandel(template.builder_theme) === action.payload && Object.values(template.category).includes(action.cate));
+        case "TEMPLATE_DATA" : return  jsonData.filter(template => builderHandel(template.builder_theme) === action.payload && template.category.includes(action.cate));
 
         default: return state;
     }
@@ -51,7 +54,7 @@ const templateSelect = ( state = {cate:'all',builder:'elementor'}, action) =>{
     }
 
 }
-const initialStateTF = true;
+const initialStateTF = false;
 
 const trueFalse = ( state = initialStateTF, action) =>{
     switch(action.type){

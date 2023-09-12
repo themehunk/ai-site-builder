@@ -23,12 +23,7 @@ export default function BuilderIcon(props) {
 
 
   const getCate = useSelector((state)=>state.templateSelect);
-
-  console.log(getCate.cate);
   const dispatch = useDispatch();
-
-
-
 
   const [ bulderType, setbulderType ] = useState(null);
   const [builder, setBuilder] = useState('elementor');
@@ -106,7 +101,7 @@ const MenuProps = {
 
 
 
-    const category = ['all','free','ecommerce','woocommmerce','multipurpose','business','portfolio','travel','music','landing-page','real-estate'];
+    const category = ['all','free','ecommerce','woocommmerce','multipurpose','business','portfolio','music','landing-page','sports'];
 
 
     return (<div className="aisb-builder-icon">

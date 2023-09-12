@@ -17,12 +17,18 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+if (defined( 'AI_SITE_BUILDER_PLUGIN_PRO' ) ) return;
+
+
+define('AI_SITE_BUILDER_PLUGIN', 'ai-site-builder');
+
 define('AI_SITE_BUILDER_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 if ( ! defined( 'AI_SITE_BUILDER_BASE_URL' ) ) {
 	define( 'AI_SITE_BUILDER_DIR_PATH', plugin_dir_path(__FILE__ ) );
 }
 
-require_once(AI_SITE_BUILDER_DIR_PATH . 'menu-class/class-menu-page.php');
+require_once(AI_SITE_BUILDER_DIR_PATH . 'admin/init.php');
 require_once(AI_SITE_BUILDER_DIR_PATH . 'core/inc.php');
 require_once(AI_SITE_BUILDER_DIR_PATH . 'app/app.php');

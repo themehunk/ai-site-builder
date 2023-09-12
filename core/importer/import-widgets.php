@@ -313,7 +313,6 @@ class AI_Site_Builder_Widget_Importer {
 					$sidebars_widgets = get_option( 'sidebars_widgets' ); // which sidebars have which widgets, get fresh every time
 
 					// Avoid rarely fatal error when the option is an empty string
-					// https://github.com/churchthemes/widget-importer-exporter/pull/11
 					if ( ! $sidebars_widgets ) {
 						$sidebars_widgets = array();
 					}

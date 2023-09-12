@@ -1,4 +1,5 @@
-<?php // Exit if accessed directly.
+<?php defined( 'ABSPATH' ) or exit;
+// Exit if accessed directly.
 if ( ! class_exists( 'AI_SITE_BUILDER_SETUP' ) ) {
 
     // Check if needed functions exists - if not, require them
@@ -22,13 +23,6 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
                 }
         }
 
-
-        static public function getapiUrl(){
-            $key = '1234Mad5@temaand'; // Replace this with your desired input string
-            $apiKey = @md5($key);
-            return $apiKey;
-        }
-
            /**
 		 * Admin settings init
 		 */
@@ -37,15 +31,14 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
             $installplugin = $params['plugin'];
 
             $allplugins         = $params['allPlugins'][0];     //  all plugin slug
-            $theme_slug          = $params['themeSlug'];         //  plugin slug
+            $theme_slug         = $params['themeSlug'];         //  plugin slug
             $proThemePlugin     = $params['proThemePlugin'];    //  free or pro theme plugin name
             $templateType       = $params['templateType'];      //  template type free or pro
             $tmplFreePro        = $params['tmplFreePro'];       // pro template type theme or plugin
 
-
             $localPlugin = $localTheme = true;
            if($templateType==='free'){
-            $installplugin[$proThemePlugin]='Themehunk Plugins';
+            $installplugin[$proThemePlugin]= esc_html('Themehunk Plugins');
 
            }elseif($templateType==='paid' && $tmplFreePro==='theme'){
                 $theme_slug = $proThemePlugin;
@@ -53,7 +46,7 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
 
            }elseif($templateType==='paid' && $tmplFreePro==='plugin'){
 
-            $installplugin[$proThemePlugin]='Premium Plugins';
+            $installplugin[$proThemePlugin]= esc_html('Premium Plugins');
               $localPlugin= false;
            }
 
@@ -162,20 +155,12 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
              
                 WP_Filesystem();
 
-                     $downloadUrl = 'https://downloads.wordpress.org/theme/'.$theme_slug.'.zip';
-
-                if($localTheme===false){
-                    $apiKey = self::getapiUrl();
-                    $downloadUrl = 'https://themehunk.com/wp/data/?theme='.$theme_slug.'&apiKey='.$apiKey;
-                }
-
+                $downloadUrl = 'https://downloads.wordpress.org/theme/'.$theme_slug.'.zip';
 
                 $temp_file = download_url($downloadUrl); 
 
 
                 $theme_dir = get_theme_root() . '/';
-
-
 
                 if (is_wp_error($temp_file)) {
                 // Handle error
@@ -217,12 +202,6 @@ if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active'
             $temp_file = download_url('https://downloads.wordpress.org/plugin/'.$slug.'.zip'); 
 
             $plugin_dir = WP_PLUGIN_DIR . '/';
-
-            if($localPlugin===false){
-                $apiKey = self::getapiUrl();
-
-                $temp_file = 'https://themehunk.com/wp/data/?plugin='.$slug.'&apiKey='.$apiKey;
-            }
 
 
             if (is_wp_error($temp_file)) {

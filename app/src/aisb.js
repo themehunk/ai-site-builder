@@ -19,9 +19,8 @@ return (<a href={'?page=ai-site-builder'} title='Dashboard'><Icon icon={<svg cla
 
 function Logo() {
     return ( <div className="logo aisb-logo">
-    <img src="http://localhost/wp572/wp-content/themes/big-store/lib/th-option/assets/images/icon.png" alt="Logo" />
-</div>)
-    
+    <img src={AISB.pluginpath+"/app/assets/images/logo.svg"} alt="Logo" />
+    </div>)
     }
 
 // Set default props
@@ -30,7 +29,6 @@ Upgrade.defaultProps = {
     background: "#fbd15b"},
     btn:true,
     version:true
-  
   };
 
 

@@ -25,15 +25,14 @@ export default function IframeTemplate(props) {
   const [ apiUrl, setApiUrl ] = useState(null);
 
 const handelClose = ()=>{
-     dispatch(addTrueFalse(false));
-    console.log(props.templateData);
+     dispatch(addTrueFalse(true));
     var modalImg = document.getElementById("iframetmpl");
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
     document.body.style.overflow = "auto";
     modalImg.src = '';
     urlReset();
-    window.location.reload(); 
+    // window.location.reload(); 
 }
 
 const urlReset = ()=>{
@@ -43,9 +42,6 @@ const urlReset = ()=>{
 const nextInstall = ()=>{
   props.installHandel();
 }
-
-console.log(props.templateData);
-console.log(props.templateData.free_paid,'free-paid');
 
     return (<div className='iframe-footer header'>
         <Flex>

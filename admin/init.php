@@ -1,6 +1,10 @@
-<?php // Exit if accessed directly.
+<?php 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+	
+// Exit if accessed directly.
 if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
-
 
     /**
 	 * AI SITE builder Admin Menu Settings
@@ -19,8 +23,16 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue' ) );
             add_action( 'init', __CLASS__ . '::init_admin_settings', 99 );
+            add_action('admin_head', array( $this,'admin_icon_style'));
 
 
+        }
+
+        function admin_icon_style() {
+        $style =  '<style>#adminmenu .toplevel_page_ai-site-builder .wp-menu-image img { padding: 2px 0 0;}</style>';
+        $arr = array( 'style' => array());
+        echo wp_kses( $style, $arr );
+        
         }
 
 
@@ -44,8 +56,6 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
 		static public function init_admin_settings() {
 
             if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
-
-				// Let extensions hook into saving.
 				self::save_settings();
 			}
 
@@ -78,10 +88,11 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
             //themes.php
             if ( in_array( $pagenow, array( 'admin.php' ), true ) ) {
 
-                if(isset($_GET['template']) && $_GET['template'] ==='step')
+                if(is_admin() && isset($_GET['template']) && 'step'=== sanitize_text_field( $_GET['template']) )
+                
                 $classes .= ' ai-site-builder';
             }
-        
+
             return $classes;
         }
 
@@ -119,15 +130,10 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
 
 
         public function admin_enqueue( $hook = '' ) {
-            // if ( 'appearance_page_'.self::$plugin_slug !== $hook ) {
-			// 	return;
-			// }
-
             if ( 'toplevel_page_'.self::$plugin_slug !== $hook ) {
 				return;
 			}
-			wp_enqueue_style( 'ai-site-builder-admin', AI_SITE_BUILDER_PLUGIN_URL . 'menu-class/assets/css/admin.css', 1.0, 'true' );
-            wp_enqueue_script('ai-site-builder-admin', AI_SITE_BUILDER_PLUGIN_URL . 'menu-class/assets/js/admin.js', array(), '1.0.0', 'true' );
+			wp_enqueue_style( 'ai-site-builder-admin', AI_SITE_BUILDER_PLUGIN_URL . 'admin/assets/css/admin.css', 1.0, 'true' );
             wp_enqueue_script( 'ai-site-builder-block-admin', AI_SITE_BUILDER_PLUGIN_URL . 'app/build/index.js', array( 'wp-element','wp-components', 'wp-i18n','wp-api-fetch','wp-url' ), '1.0', true );
            
             wp_localize_script( 'ai-site-builder-block-admin', 'AISB',
@@ -135,7 +141,7 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
                 'ajaxurl' => admin_url( 'admin-ajax.php' ),
                 'baseurl' => site_url( '/' ),
                 'pluginpath'=>AI_SITE_BUILDER_PLUGIN_URL,
-                'upgrade'=>'https://themehunk.com'           
+                'upgrade'=> esc_url('https://themehunk.com')           
                  )
         );
 
@@ -149,7 +155,7 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
          static public function menu_callback() {
             ?>
             <div class="themehunk-sites-menu-page-wrapper">
-           <?php require_once(AI_SITE_BUILDER_DIR_PATH . 'menu-class/template.php'); ?>
+           <?php require_once(plugin_dir_path(__FILE__ ) . 'template.php'); ?>
             </div>
             <?php
         }

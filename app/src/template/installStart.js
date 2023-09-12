@@ -15,6 +15,7 @@ function getThemeData(type){
 
   let thCustomizer = 'themehunk-customizer';
   let hunkCompanion = 'hunk-companion';
+  let zCompanion = 'z-companion';
 
 const themeList = [ { 
   shopmania:[
@@ -106,7 +107,12 @@ featured:[
 ],
 novelpro:[
   { 
-    type:'self', template: 'free', name: 'novellite',free:thCustomizer,paid:'novelpro', builder:'customizer'
+    type:'theme', template: 'free', name: 'novellite',free:thCustomizer,paid:'novelpro', builder:'customizer'
+  },
+],
+royalshop:[
+  { 
+    type:'theme', template: 'free', name: 'royal-shop',free:zCompanion,paid:'royal-shop-pro', builder:'customizer'
   },
 ]
 }
@@ -144,7 +150,6 @@ export default function installStart(props){
 
   // get theme name
   const getThemeName = () => {
-    console.log(props.templateData.api_url);
     return getQueryArg( props.templateData.api_url, 'theme' );
   }
 
@@ -176,13 +181,7 @@ export default function installStart(props){
             themeSlug:getThemeName(),
             proThemePlugin:getPluginName('free'),
             tmplFreePro:getPluginName()
-          }
-
-console.log(params);
-
-  
-          console.log(props.templateData.plugin);
-      
+          }      
             try {
                 await axios.post(AISB.baseurl+'wp-json/ai/v1/ai-site-builder', {
                     params: {
@@ -197,7 +196,7 @@ console.log(params);
                   })
                   .then(function (response) {
                     dispatch(tmplLodaing('Importing Server Data..'));
-                    console.log(response.data);
+                    // console.log(response.data);
                     setApiUrl(props.templateData.api_url);
                   })
                   .catch(function (error) {

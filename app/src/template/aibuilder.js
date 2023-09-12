@@ -9,13 +9,10 @@ import InstallStart from './installStart';
 import BuildWibsite from './buildwebsite';
 import Success from './success';
 
-
-
 export default function AiBuilder(props) {
   const myState = useSelector((state)=>state.templateSelect);
   const pageStep = useSelector((state)=>state.stepLoad);
   const dispatch = useDispatch();
-  console.log(myState);
   const [ templateData, setTemplateData ] = useState(null);
   const [ iframeurl, setIframeUrl ] = useState(false);
   const [ loader, setLoaderl ] = useState(true);
@@ -35,7 +32,7 @@ export default function AiBuilder(props) {
     setIframeUrl(jdata.demo_url+'/?hide');
     setTimeout(function() {
       frameload();
-    }, 8000);
+    }, 4000);
 
 
   } catch (error) {
@@ -48,7 +45,6 @@ export default function AiBuilder(props) {
          setTimeout(function() {
           setLoaderl(false);
           setIframeDisplay({display:"block"});
-       //   document.getElementById("iframetmpl").style.display = "block";
         }, 2000);
        
        }

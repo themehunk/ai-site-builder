@@ -56,16 +56,16 @@ html.wp-toolbar {
 .aisb-dashboard .aisb-dashboard-header .aisb-logo {
   gap: 15px;
   display: flex;
-  padding: 15px;
+  padding: 7px 0 4px 12px;
 }
 
 .aisb-dashboard .aisb-dashboard-header .aisb-logo img{
-  height: 30px;
+  height: 35px;
 }
 .aisb-dashboard .aisb-dashboard-header .aisb-logo h2{
     margin: 0;
     font-weight: 600;
-    padding-top: 5px;
+    padding-top: 14px;
 }
 
 .aisb-dashboard .aisb-dashboard-header .aisb-logo small{
@@ -148,13 +148,23 @@ border-right: 2px solid #e3e3e3;
     margin-bottom: 2.4rem;
 }
 
+.aisb-right-content .aisb-desc{
+  display: inline-flex;
+}
+
+.aisb-right-content .aisb-desc img{
+    width: 26px;
+    margin-top: -3px;
+    padding-right: 11px;
+}
+
 .aisb-dashboard .aisb-right-content.red{
   border-bottom: 3px solid #f7a0a0;
   box-shadow: 0px 2px 8px 1px rgb(139 138 138 / 30%);
 }
 
 .aisb-dashboard .aisb-right-content.blue {
-  border-bottom: 3px solid #b292ff;
+  border-bottom: 3px solid #90d387;
   box-shadow: 0px 2px 8px 1px rgb(139 138 138 / 30%);
 }
 .aisb-dashboard .aisb-right-content.yellow {
@@ -163,7 +173,7 @@ border-right: 2px solid #e3e3e3;
 }
 
 .aisb-dashboard .aisb-right-content.green {
-  border-bottom: 3px solid #43ffc2;
+  border-bottom: 3px solid #8cb0ff;
   box-shadow: 0px 2px 8px 1px rgb(139 138 138 / 30%);
 }
 
@@ -213,12 +223,12 @@ header {
   
   .aisb-logo {
     background: #fff;
-    padding: 3px 6px;
-    border-radius: 5px;
+    padding: 4px 4px 0px 5px;
+    border-radius: 4px;
   }
   
   .aisb-logo img {
-    height: 30px; /* Adjust the height as needed */
+    height: 35px; /* Adjust the height as needed */
   }
 
   button.components-button.aisb-upgrade-btn.is-primary {
@@ -398,7 +408,7 @@ header {
     width: 84%;
     background-color: #fff;
     padding: 2.5rem 1rem;
-    margin: 0px 8%;
+    margin: 0 8% 5% 8%;
     justify-content: space-between;
     border-radius: 25px;
   }
@@ -649,6 +659,7 @@ iframe{
       }
          .header-skeleton {
         display: flex;
+        margin-left: 6%;
       }
       
       .hs-column {
@@ -683,6 +694,7 @@ iframe{
       display: flex;
       margin-top: 60px;
       margin-bottom: 60px;
+      margin-left: 5%;
   }
       .ms-column {
         flex: 1;
@@ -706,6 +718,28 @@ iframe{
         padding: 20px;
         text-align: center;
       }
+
+
+      /** List skelten **/
+.skeleton-tmpl-footer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.skeleton-tmpl-container {
+  width: 100%;
+  padding-top: 50px;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.skeleton-tmpl-container .sf-line{
+  width: 20px;
+  margin-left: 10%;
+}
     
   /*** Step Three Build Website and loading start
       Shining Text Animation Effects

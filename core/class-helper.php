@@ -1,6 +1,5 @@
-<?php
+<?php defined( 'ABSPATH' ) or exit;
 
-use function Jaxon\maybe_add_notices;
 
 if ( ! class_exists( 'AI_Site_Builder_Helper' ) ) :
 

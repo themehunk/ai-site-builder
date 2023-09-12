@@ -1,4 +1,6 @@
-<?php // Exit if accessed directly.
+<?php defined( 'ABSPATH' ) or exit;
+
+// Exit if accessed directly.
 if ( ! class_exists( 'AI_SITE_BUILDER_ADMIN_LOAD' ) ) {
 
 

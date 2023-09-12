@@ -5,6 +5,7 @@ import BuilderIcon from './template/buildericon';
 import AiBuilder from './template/aibuilder';
 import { getQueryArg } from '@wordpress/url';
 import Dashboard from './template/dashboard';
+import AiGpt from './gpt/aigpt';
 
 export default function App() {
 
@@ -24,7 +25,12 @@ export default function App() {
   useEffect(() => {
     if(getQueryArg( currentUrl,'template' ) ==='step'){
       setpageChange(true);
-    }else{
+     } 
+    //if(getQueryArg( currentUrl,'template' ) ==='aisb'){
+
+    
+    // }
+    else{
       setpageChange(false);
     }
 
@@ -44,6 +50,12 @@ export default function App() {
         </div> }
 
         {pageChange===false && <Dashboard />}
+
+
+      {/* { (getQueryArg( currentUrl,'template' ) ==='aisb') && <div className="aigpt" style={{margin:'10%'}}>
+             <AiGpt/>
+      </div> } */}
+       
    
       </div>
     );

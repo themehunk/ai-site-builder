@@ -1,7 +1,7 @@
 import { createRoot, render, createElement,useState,useEffect } from '@wordpress/element';
 import { Flex, FlexBlock, FlexItem,Button } from '@wordpress/components';
 import { Icon, arrowRight,chevronLeftSmall, color } from '@wordpress/icons';
-import { Upgrade } from '../aisb';
+import { Logo, Upgrade } from '../aisb';
 
 export default function dashboard(props){
 
@@ -20,7 +20,7 @@ return(<div className='aisb-dashboard'>
     'row'
   ]}>
 <FlexBlock className='aisb-logo'>
- <img src='http://localhost/wp572/wp-content/themes/big-store/lib/th-option/assets/images/icon.png'/> 
+<Logo/>
  <small></small> 
 <h2>AI Website Builder</h2>
 </FlexBlock>
@@ -57,27 +57,29 @@ return(<div className='aisb-dashboard'>
   <img src={AISB.pluginpath+'app/assets/images/banner.png'} />
 </div>
 </FlexItem>
+
+
 <FlexItem  className='aisb-right-db'>
 <div className='aisb-right-content red'>
-    <h3>Documentions</h3>
+    <h3  className='aisb-desc docs'><img src={AISB.pluginpath+"/app/assets/svg/docs.svg"} alt="docs" />Documentation</h3>
     <p> Loop through the array to process them. This array structure can be used in your PHP code to organize</p>
     <a>Read More</a>
 </div>
 
 <div className='aisb-right-content green'>
-    <h3>Get Help</h3>
+    <h3  className='aisb-desc support'><img src={AISB.pluginpath+"/app/assets/svg/support.svg"} alt="support" />Get Help</h3>
     <p> Loop through the array to process them. This array structure can be used in your PHP code to organize</p>
     <a>Read More</a>
 </div>
 
 <div className='aisb-right-content blue'>
-    <h3>Review</h3>
+    <h3 className='aisb-desc review'><img src={AISB.pluginpath+"/app/assets/svg/review.svg"} alt="review" />Review</h3>
     <p> Loop through the array to process them. This array structure can be used in your PHP code to organize</p>
     <a>Read More</a>
 </div>
 
 <div className='aisb-right-content yellow'>
-    <h3>Suggestions</h3>
+    <h3 className='aisb-desc suggestions'><img src={AISB.pluginpath+"/app/assets/svg/suggestions.svg"} alt="suggestions" />Suggestions</h3>
     <p> Loop through the array to process them. This array structure can be used in your PHP code to organize</p>
     <a>Read More</a>
 </div>
