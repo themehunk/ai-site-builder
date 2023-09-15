@@ -1,7 +1,8 @@
 import { Icon, styles } from '@wordpress/icons';
 import { Button } from '@wordpress/components';
 
- 
+console.log(window.location.href);     //yields: "https://stacksnippets.net/js"
+
  function Upgrade(props) {
         const version = 'Version 1.0';
     return (<>{props.btn && <a href={AISB.upgrade} target='_blank'>
@@ -19,7 +20,7 @@ return (<a href={'?page=ai-site-builder'} title='Dashboard'><Icon icon={<svg cla
 
 function Logo() {
     return ( <div className="logo aisb-logo">
-    <img src={AISB.pluginpath+"/app/assets/images/logo.svg"} alt="Logo" />
+    <a href={window.location.href}><img src={AISB.pluginpath+"/app/assets/images/logo.svg"} alt="Logo" /></a>
     </div>)
     }
 

@@ -5,6 +5,11 @@
     padding: 6px 0 0;
 }
 
+ a:focus{
+  color: #043959;
+  box-shadow: none;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -227,6 +232,11 @@ header {
     border-radius: 4px;
   }
   
+  .logo.aisb-logo:hover {
+    opacity: 0.93;
+    background: #fff;
+
+}
   .aisb-logo img {
     height: 35px; /* Adjust the height as needed */
   }

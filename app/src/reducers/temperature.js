@@ -15,9 +15,8 @@ import portfolioline from '../../assets/json/portfolioline.json';
 import royalshop from '../../assets/json/royal-shop.json';
 import shopline from '../../assets/json/shopline-pro.json';
 import topstore from '../../assets/json/top-store-pro.json';
-const jsonData = shopmania.concat(gutenberg,openshop,gogo,bigstore,mshop,oneline,topstore,jotshop,novelpro,amazstore,featured,openmart,royalshop);
-// checking- almaira,shopline,portfolioline
-
+const jsonData = shopmania.concat(gutenberg,openshop,gogo,bigstore,portfolioline,mshop,oneline,topstore,jotshop,novelpro,amazstore,featured,openmart,royalshop);
+// checking- almaira,shopline,
 
 const gutenbergtmpl = ['th-shop-mania','blockline','blockline-pro','blur','blur-pro','gutenberg'];
 const customizer = ['topstore','royal-shop','top-store-pro','big-store','openshop-pro','jotshop','open-mart','m-shop','shopline-pro','amaz-store','almaira','gogo','novelpro','oneline','portfolioline','featured'];

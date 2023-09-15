@@ -70,7 +70,6 @@ export default function ImportAPI(props) {
     /*** All Import data
      *  customizer,option,xml
      */
-
     const getImportData = async () =>{
           const dataToSend = { data: apiUrl }; // Customize the data to send
            const response = await fetch(ajaxUrl, {
@@ -82,7 +81,6 @@ export default function ImportAPI(props) {
         });
         
         const jsonData = await response.json();
-
          setApiData(jsonData.data);
         console.log('Start...');
         dispatch(tmplLodaing('Importing Content'));
@@ -142,7 +140,6 @@ const importXml = async (xml_url) =>{
         }).then(response => response.json())
             .then(xml_data => {
                 // Handle the AJAX response
-                // console.log(xml_data.data);
                 hendelXmlImport(xml_data.data);
 
             })

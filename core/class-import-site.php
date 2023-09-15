@@ -66,10 +66,10 @@ if ( ! class_exists( 'AI_SITE_BUILDER_IMPORT' ) ) {
 
 			if ( ! isset( $data['data'] ) ) {
 				$remote_args['id']                  = $data['id'];
-				$remote_args['widgets']    	= json_decode( $data['themehunk-widget'] );
-				$remote_args['customizer'] 	= $data['themehunk-customizer'];
-				$remote_args['xml']        	= $data['themehunk-xml'];
-				$remote_args['option']        = $data['themehunk-option'];
+				$remote_args['widgets']    	= isset($data['themehunk-widget'])? json_decode( $data['themehunk-widget'] ):json_decode( $data['zita-widget'] );
+				$remote_args['customizer'] 	= isset($data['themehunk-customizer'])?$data['themehunk-customizer']:$data['zita-customizer'];
+				$remote_args['xml']        	= isset($data['themehunk-xml'])?$data['themehunk-xml']:$data['zita-xml']; 
+				$remote_args['option']        = isset($data['themehunk-option'])?$data['themehunk-option']:$data['zita-option'];
 			}
 			
 			$remote_data = wp_parse_args( $remote_args);
