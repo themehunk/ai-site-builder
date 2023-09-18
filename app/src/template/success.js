@@ -7,8 +7,6 @@ import { HomeLink, Logo, Upgrade } from '../aisb';
 
 
 export default function success(){
-
-
     const defaultOptions = {
         loop: false,
         autoplay: true, 

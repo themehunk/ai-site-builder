@@ -95,11 +95,10 @@ return (
 
   <div className='asib-tmpl-footer'>
     <h3>{template.title}</h3>
-    {template.free_paid =="paid" && <span className='aisb-pro'>PREMIUM</span>}
+    {template.free_paid =="paid" && <a className='aisb-pro' data-pro='Premium' ><img src={`${AISB.pluginpath}app/assets/images/pro.png`}  alt="Premium" /></a>}
   </div>
 </div>
 </div>);
-
 })}
   </div>}
 </div>

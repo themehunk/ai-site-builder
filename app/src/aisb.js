@@ -20,7 +20,7 @@ return (<a href={'?page=ai-site-builder'} title='Dashboard'><Icon icon={<svg cla
 
 function Logo() {
     return ( <div className="logo aisb-logo">
-    <a href={window.location.href}><img src={AISB.pluginpath+"/app/assets/images/logo.svg"} alt="Logo" /></a>
+    <a href={window.location.href}><img src={AISB.pluginpath+"/app/assets/images/logo.png"} alt="Logo" /></a>
     </div>)
     }
 

@@ -28,6 +28,7 @@
 		"@wordpress/icons": "^9.29.0",
 		"@wordpress/url": "^3.39.0",
 		"axios": "^1.4.0",
+		"react-lottie": "^1.2.3",
 		"react-redux": "^8.1.1",
 		"redux": "^4.2.1",
 		"styled-components": "^5.3.11"
