@@ -74,7 +74,7 @@ return( <div className='aisb-site-build-wrap'>
                     </div> */}
 
 
-                    <div className='btn-center'><span className='aisb-install-btn' onClick={()=>dispatch(stepThree(true))}>Create Website<b><Icon size ={22} icon={ arrowRight } /></b></span></div>
+                    <div className='btn-center'><span className='aisb-install-btn' onClick={()=>dispatch(stepThree(true))}>Build My Website<b><Icon size ={22} icon={ arrowRight } /></b></span></div>
                 </div>
             </div>
 

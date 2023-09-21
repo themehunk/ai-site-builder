@@ -53,9 +53,9 @@ const nextInstall = ()=>{
               <FlexBlock>
               
               
-              {props.templateData.free_paid==='free' &&  <div><span onClick={()=>nextInstall()} className='aisb-install-btn'>Create Website<b><Icon size ={22} icon={ arrowRight } /></b></span></div> }
+              {props.templateData.free_paid==='free' &&  <div><span onClick={()=>nextInstall()} className='aisb-install-btn'>Continue<b><Icon size ={22} icon={ arrowRight } /></b></span></div> }
               
-              {props.templateData.free_paid==='paid' && <div className="header-text center" onClick={()=>nextInstall()}>
+              {props.templateData.free_paid==='paid' && <div className="header-text center" >
               <Upgrade version={false}/>
               </div>}
               

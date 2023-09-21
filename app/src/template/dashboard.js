@@ -45,7 +45,7 @@ return(<div className='aisb-dashboard'>
 <a href={window.location.href+'&template=step'}>
 <h2 className='create-website'>
 <img src={AISB.pluginpath+'app/assets/svg/create-site.svg'} />
-  Create Website
+  Create My Website
 </h2></a>
 </div>
 <div className='aisb-left-content'>
