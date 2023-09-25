@@ -19,6 +19,8 @@ class AISB_APP{
     add_action( 'wp_ajax_ai_site_builder_ajax_cutomizer', array( $this, 'init_cutomizer') );
     add_action( 'wp_ajax_ai_site_builder_aimport_options', array( $this, 'init_options') );
     add_action( 'wp_ajax_ai_site_builder_import_widgets', array( $this, 'init_widgets' ) );
+    add_action( 'wp_ajax_ai_site_builder_core', array( $this, 'init_site_url' ) );
+
   }
 
     public function register_routes() {
@@ -121,6 +123,18 @@ class AISB_APP{
           exit();
       }
  }
+
+  public function init_site_url(){
+        if(isset( $_POST['data'] )){
+
+            $data = stripslashes( $_POST['data']);
+
+            $data = json_decode($data)->data;
+            $core = new AI_SITE_BUILDER_CORE();
+            $core->core_data($data);
+          }
+
+  }
 
 }
 

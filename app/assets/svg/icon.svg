@@ -8,7 +8,7 @@
 
       .cls-2 {
         fill: none;
-        stroke: #ed2525;
+        stroke: #a7aaad;
         stroke-width: 31px;
       }
 
@@ -17,7 +17,7 @@
       }
 
       .cls-3 {
-        fill: #ed2525;
+        fill: #a7aaad;
       }
     </style>
     <filter id="filter" filterUnits="userSpaceOnUse">

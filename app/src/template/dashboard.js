@@ -63,25 +63,25 @@ return(<div className='aisb-dashboard'>
 <div className='aisb-right-content red'>
     <h3  className='aisb-desc docs'><img src={AISB.pluginpath+"/app/assets/svg/docs.svg"} alt="docs" />Documentation</h3>
     <p> Loop through the array to process them. This array structure can be used in your PHP code to organize</p>
-    <a>Read More</a>
+    <a href='https://wpzita.com/docs/install-free-zita-site-builder/' target='_blank'>Read More</a>
 </div>
 
 <div className='aisb-right-content green'>
     <h3  className='aisb-desc support'><img src={AISB.pluginpath+"/app/assets/svg/support.svg"} alt="support" />Get Help</h3>
     <p> Loop through the array to process them. This array structure can be used in your PHP code to organize</p>
-    <a>Read More</a>
+    <a href='https://wpzita.com/builder-support/' target='_blank'>Read More</a>
 </div>
 
 <div className='aisb-right-content blue'>
     <h3 className='aisb-desc review'><img src={AISB.pluginpath+"/app/assets/svg/review.svg"} alt="review" />Review</h3>
     <p> Loop through the array to process them. This array structure can be used in your PHP code to organize</p>
-    <a>Read More</a>
+    <a href='https://www.trustpilot.com/review/themehunk.com?stars=5' target='_blank'>Read More</a>
 </div>
 
 <div className='aisb-right-content yellow'>
     <h3 className='aisb-desc suggestions'><img src={AISB.pluginpath+"/app/assets/svg/suggestions.svg"} alt="suggestions" />Suggestions</h3>
     <p> Loop through the array to process them. This array structure can be used in your PHP code to organize</p>
-    <a>Read More</a>
+    <a href='https://wpzita.com/suggestions/' target='_blank'>Read More</a>
 </div>
 </FlexItem>
 

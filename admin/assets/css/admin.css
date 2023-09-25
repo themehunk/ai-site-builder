@@ -985,3 +985,18 @@ input[type=text]:focus{
 .aisb-site-main .loading-msg {
   text-align:center;
 }
+
+
+
+/*** Responsive Css **/
+
+@media only screen and (max-width: 1500px) {
+  .aisb-site-form .aisb-border-btn {
+    padding: 12px 30px 5px 30px !important;
+}
+
+.aisb-site-form .aisb-install-btn {
+    padding: 12px 35px 5px 35px;
+}
+
+}

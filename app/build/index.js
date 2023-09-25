@@ -21286,28 +21286,40 @@ function dashboard(props) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: AISB.pluginpath + "/app/assets/svg/docs.svg",
     alt: "docs"
-  }), "Documentation"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, " Loop through the array to process them. This array structure can be used in your PHP code to organize"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, "Read More")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }), "Documentation"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, " Loop through the array to process them. This array structure can be used in your PHP code to organize"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "https://wpzita.com/docs/install-free-zita-site-builder/",
+    target: "_blank"
+  }, "Read More")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "aisb-right-content green"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
     className: "aisb-desc support"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: AISB.pluginpath + "/app/assets/svg/support.svg",
     alt: "support"
-  }), "Get Help"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, " Loop through the array to process them. This array structure can be used in your PHP code to organize"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, "Read More")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }), "Get Help"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, " Loop through the array to process them. This array structure can be used in your PHP code to organize"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "https://wpzita.com/builder-support/",
+    target: "_blank"
+  }, "Read More")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "aisb-right-content blue"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
     className: "aisb-desc review"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: AISB.pluginpath + "/app/assets/svg/review.svg",
     alt: "review"
-  }), "Review"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, " Loop through the array to process them. This array structure can be used in your PHP code to organize"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, "Read More")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }), "Review"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, " Loop through the array to process them. This array structure can be used in your PHP code to organize"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "https://www.trustpilot.com/review/themehunk.com?stars=5",
+    target: "_blank"
+  }, "Read More")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "aisb-right-content yellow"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
     className: "aisb-desc suggestions"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: AISB.pluginpath + "/app/assets/svg/suggestions.svg",
     alt: "suggestions"
-  }), "Suggestions"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, " Loop through the array to process them. This array structure can be used in your PHP code to organize"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", null, "Read More")))));
+  }), "Suggestions"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, " Loop through the array to process them. This array structure can be used in your PHP code to organize"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "https://wpzita.com/suggestions/",
+    target: "_blank"
+  }, "Read More")))));
 }
 
 /***/ }),
@@ -22318,14 +22330,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _assets_lottie_success__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/lottie/success */ "./assets/lottie/success.json");
-/* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/url */ "@wordpress/url");
-/* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_url__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
-/* harmony import */ var react_lottie__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-lottie */ "./node_modules/react-lottie/dist/index.js");
-/* harmony import */ var _aisb__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../aisb */ "./src/aisb.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _assets_lottie_success__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/lottie/success */ "./assets/lottie/success.json");
+/* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/url */ "@wordpress/url");
+/* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_url__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/icon/index.js");
+/* harmony import */ var react_lottie__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-lottie */ "./node_modules/react-lottie/dist/index.js");
+/* harmony import */ var _aisb__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../aisb */ "./src/aisb.js");
+
+
 
 
 
@@ -22334,12 +22349,43 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function success() {
+  const templType = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(state => state.templateSelect);
+  const [customizeUrl, setCustomizeUrl] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)();
   const defaultOptions = {
     loop: false,
     autoplay: true,
-    animationData: _assets_lottie_success__WEBPACK_IMPORTED_MODULE_2__,
+    animationData: _assets_lottie_success__WEBPACK_IMPORTED_MODULE_3__,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    getEditUrl();
+  }, []); // 👈️ empty dependencies array
+
+  const getEditUrl = async () => {
+    try {
+      const dataToSend = {
+        data: templType,
+        type: 'edit'
+      }; // Customize the data to send
+      const response = await fetch(AISB.ajaxurl, {
+        method: 'POST',
+        body: new URLSearchParams({
+          action: 'ai_site_builder_core',
+          // Specify the WordPress AJAX action
+          data: JSON.stringify(dataToSend) // Convert the data to JSON and send it
+        })
+      }).then(response => response.json()).then(data => {
+        // Handle the AJAX respons            
+        setCustomizeUrl(data.data);
+        // Perform any further actions with the response
+      }).catch(error => {
+        // Handle errors
+        console.error('Error in AJAX request:', error);
+      });
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
   };
   const handleClick = () => {
@@ -22347,26 +22393,31 @@ function success() {
 
     window.open(AISB.baseurl, '_blank');
   };
+  const handleCustomize = () => {
+    // window.location.replace(AISB.baseurl);
+
+    window.open(customizeUrl, '_blank');
+  };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "aisb-site-build-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "aisb-site-build"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Flex, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FlexItem, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_aisb__WEBPACK_IMPORTED_MODULE_5__.Logo, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FlexItem, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexItem, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_aisb__WEBPACK_IMPORTED_MODULE_6__.Logo, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexItem, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "header-text"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_aisb__WEBPACK_IMPORTED_MODULE_5__.Upgrade, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_aisb__WEBPACK_IMPORTED_MODULE_5__.HomeLink, null))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_aisb__WEBPACK_IMPORTED_MODULE_6__.Upgrade, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_aisb__WEBPACK_IMPORTED_MODULE_6__.HomeLink, null))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "aisb-site-main"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "aisb-site-form"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, " Congratulation"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_lottie__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, " Congratulation"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_lottie__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: "lottie-success",
     options: defaultOptions,
     width: 230
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Your webiste is now ready. "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Flex, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FlexItem, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Your webiste is now ready. "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexItem, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "btn-center"
   }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "aisb-install-btn",
-    onClick: handleClick
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("b", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    onClick: handleCustomize
+  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("b", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"], {
     icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
       width: "20px",
       height: "20px",
@@ -22380,12 +22431,12 @@ function success() {
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
       d: "M14.48 11.06L7.41 3.99l1.5-1.5c.5-.56 2.3-.47 3.51.32 1.21.8 1.43 1.28 2.91 2.1 1.18.64 2.45 1.26 4.45.85zm-.71.71L6.7 4.7 4.93 6.47c-.39.39-.39 1.02 0 1.41l1.06 1.06c.39.39.39 1.03 0 1.42-.6.6-1.43 1.11-2.21 1.69-.35.26-.7.53-1.01.84C1.43 14.23.4 16.08 1.4 17.07c.99 1 2.84-.03 4.18-1.36.31-.31.58-.66.85-1.02.57-.78 1.08-1.61 1.69-2.21.39-.39 1.02-.39 1.41 0l1.06 1.06c.39.39 1.02.39 1.41 0z"
     })))
-  })), "Customize "))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FlexItem, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })), "Customize "))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexItem, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "btn-center"
   }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "aisb-border-btn",
     onClick: handleClick
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("b", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("b", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_icons__WEBPACK_IMPORTED_MODULE_7__["default"], {
     icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
       width: "24px",
       height: "24px",

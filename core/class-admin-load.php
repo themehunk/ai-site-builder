@@ -34,7 +34,6 @@ if ( ! class_exists( 'AI_SITE_BUILDER_ADMIN_LOAD' ) ) {
 		require_once AI_SITE_BUILDER_DIR_PATH . 'core/importer/import-widgets.php';
 		require_once AI_SITE_BUILDER_DIR_PATH . 'core/class-helper.php';
 		require_once AI_SITE_BUILDER_DIR_PATH . 'core/class-import-site.php';
-
 		}
 
     }

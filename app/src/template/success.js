@@ -1,3 +1,5 @@
+import { useState,useEffect } from '@wordpress/element';
+import { useSelector} from 'react-redux';
 import { Button, Flex, FlexBlock, FlexItem } from '@wordpress/components';
 import animationSuccess  from '../../assets/lottie/success';
 import { getQueryArg } from '@wordpress/url';
@@ -6,7 +8,14 @@ import Lottie from 'react-lottie';
 import { HomeLink, Logo, Upgrade } from '../aisb';
 
 
+
+
 export default function success(){
+
+  const templType = useSelector((state)=>state.templateSelect);
+
+  const [customizeUrl,setCustomizeUrl] = useState();
+
     const defaultOptions = {
         loop: false,
         autoplay: true, 
@@ -15,6 +24,40 @@ export default function success(){
           preserveAspectRatio: 'xMidYMid slice'
         }
       };
+
+      
+      useEffect(() => {
+        getEditUrl();       
+      }, []); // 👈️ empty dependencies array
+
+
+const getEditUrl = async () =>{
+  try {
+    const dataToSend = { data: templType,type:'edit' }; // Customize the data to send
+    const response = await fetch(AISB.ajaxurl, {
+      method: 'POST',
+      body: new URLSearchParams({
+          action: 'ai_site_builder_core', // Specify the WordPress AJAX action
+          data: JSON.stringify(dataToSend), // Convert the data to JSON and send it
+      }),
+  })
+
+  .then(response => response.json())
+      .then(data => {
+          // Handle the AJAX respons            
+          setCustomizeUrl(data.data);          
+          // Perform any further actions with the response
+      })
+      .catch(error => {
+          // Handle errors
+          console.error('Error in AJAX request:', error);
+      });
+
+  } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+}
+
       
 
       const handleClick= () =>{
@@ -23,6 +66,14 @@ export default function success(){
          window.open(AISB.baseurl, '_blank');
    
        }
+
+       const handleCustomize= () =>{
+        // window.location.replace(AISB.baseurl);
+   
+         window.open(customizeUrl, '_blank');
+   
+       }
+
 
 return(<div className='aisb-site-build-wrap'>
   
@@ -48,7 +99,7 @@ return(<div className='aisb-site-build-wrap'>
             <h2>Your webiste is now ready. </h2>
             <Flex>
                   <FlexItem>
-                  <div className='btn-center'> <span className='aisb-install-btn' onClick={ handleClick }> <b><Icon
+                  <div className='btn-center'> <span className='aisb-install-btn' onClick={ handleCustomize }> <b><Icon
        icon={
         <svg width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect x="0" fill="none" width="20" height="20"/>
         <g><path d="M14.48 11.06L7.41 3.99l1.5-1.5c.5-.56 2.3-.47 3.51.32 1.21.8 1.43 1.28 2.91 2.1 1.18.64 2.45 1.26 4.45.85zm-.71.71L6.7 4.7 4.93 6.47c-.39.39-.39 1.02 0 1.41l1.06 1.06c.39.39.39 1.03 0 1.42-.6.6-1.43 1.11-2.21 1.69-.35.26-.7.53-1.01.84C1.43 14.23.4 16.08 1.4 17.07c.99 1 2.84-.03 4.18-1.36.31-.31.58-.66.85-1.02.57-.78 1.08-1.61 1.69-2.21.39-.39 1.02-.39 1.41 0l1.06 1.06c.39.39 1.02.39 1.41 0z"/></g>

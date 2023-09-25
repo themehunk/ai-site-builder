@@ -32,3 +32,5 @@ if ( ! defined( 'AI_SITE_BUILDER_BASE_URL' ) ) {
 require_once(AI_SITE_BUILDER_DIR_PATH . 'admin/init.php');
 require_once(AI_SITE_BUILDER_DIR_PATH . 'core/inc.php');
 require_once(AI_SITE_BUILDER_DIR_PATH . 'app/app.php');
+require_once AI_SITE_BUILDER_DIR_PATH . 'core/class-core.php';
+
