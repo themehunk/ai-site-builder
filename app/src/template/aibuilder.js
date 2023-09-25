@@ -8,6 +8,7 @@ import {stepOne,stepTwo,stepThree} from '../actions';
 import InstallStart from './installStart';
 import BuildWibsite from './buildwebsite';
 import Success from './success';
+import { Icon, chevronDown,chevronUp } from '@wordpress/icons';
 
 export default function AiBuilder(props) {
   const myState = useSelector((state)=>state.templateSelect);
@@ -19,7 +20,8 @@ export default function AiBuilder(props) {
   const [ nextBtn, setNextBtn ] = useState(true);
   const [ stepThree, setStepThree ] = useState(false);
   const [ iframeDisplay, setIframeDisplay ] = useState({display:"block"});
-  
+  const [isHidden, setIsHidden] = useState(false);
+
   const handeldata =  (jdata)=> {
     try {
       dispatch(stepOne(true));
@@ -55,6 +57,11 @@ export default function AiBuilder(props) {
        setStepThree(true);
        }
 
+
+      const handelDownFotter = () =>{
+        setIsHidden(!isHidden);
+      }
+
     return (<>
         <div class="aisb-container-main-tmpl">
         <SiteTemplate  datatemp={(jdata)=>handeldata(jdata)} builderHide = {props.builder}/>
@@ -70,8 +77,8 @@ export default function AiBuilder(props) {
 
         {  /*** demo show and next button click */}
       {pageStep.iframe &&  <div class="aisb-container-demo-tmpl theme-install-overlay-stop wp-full-overlay-stop expanded-stop">
-              <div class="left-column wp-full-overlay-sidebar-stop" id="sidebarModel">
-              
+              <div class={`left-column wp-full-overlay-sidebar-stop ${isHidden ? 'tiphide' : ''}`} id="sidebarModel">
+              <b onClick={handelDownFotter} className='footer-tip'><Icon size ={22} icon={ isHidden ? chevronUp : chevronDown } /></b>
               {templateData !== null && <IframeTemplate templateData={templateData} installHandel = {()=>installHandel()}/>}
 
               </div>

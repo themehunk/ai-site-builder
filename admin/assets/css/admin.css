@@ -253,7 +253,7 @@ header {
     padding: 6px 15px;
     border: 0;
     font-weight: 600;
-    margin-right: 10px;
+    margin-right: 9%;
     cursor: pointer;
 }
 
@@ -549,6 +549,7 @@ header {
 /** Iframe popup Footer **/
 
 
+
 .aisb-back h3 {
   margin-top: 7px !important;
 }
@@ -557,9 +558,49 @@ padding: 8px 10px;
 }
 
 
+/*** iframe fotter tip style **/
+
+#sidebarModel.tiphide{
+  top: 100%;
+  -webkit-transform:translateY(0px);
+    -moz-transform:translateY(0px);
+    transform:translateY(0px) -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+#sidebarModel .footer-tip{
+  margin-left: 45%;
+  display: block;
+  position: absolute;
+  bottom: 86%;
+  background: #6c17e1;
+  color: #fff;
+  fill: #fff;
+  border-radius: 6px;
+  padding: 4px 12px;
+}
+
+.aisb-model::-webkit-scrollbar {
+  display: none;
+}
+
+.aisb-model{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
 
 /* The Close Button */
-
 .aisb-install-btn b svg{
 fill: #ffff;
 }
@@ -575,12 +616,14 @@ fill: #ffff;
   color: #fff;
   border: 2px solid white;
   cursor: pointer;
+  margin-left: 2%;
 }
 
 .aisb-back .close svg{
   fill: #8535c6;
   padding-top: 5px;
 }
+
 .aisb-back .close {
      color: #8535c6;
     font-size: 15px;
@@ -599,9 +642,6 @@ fill: #ffff;
   text-decoration: none;
   cursor: pointer;
 }
-
-
-
 
 
 /*** model template click **/
@@ -654,6 +694,11 @@ iframe{
   width: 100%;
   background: var(--aisb-bg-color);
   background: -ms-linear-gradient( 0deg, rgb(74 0 224 / 90%) 0%, rgb(142 45 226 / 55%) 100%);
+  -webkit-transform:translateY(0px);
+  -moz-transform:translateY(0px);
+  transform:translateY(0px) -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 

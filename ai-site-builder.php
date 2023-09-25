@@ -1,16 +1,14 @@
 <?php
 /**
- * Plugin Name:       AI Site Builder
- * Description:       Example block written with ESNext standard and JSX support – build step required.
- * Requires at least: 5.8
- * Requires PHP:      7.0
- * Version:           0.1.2
- * Author:            The WordPress Contributors
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       guten-blocks
+ * Plugin Name:       	AI Site Builder
+ * Plugin URI: 			https://www.brainstormforce.com
+ * Author:           	ThemeHunk
+ * Author URI:			https://www.themehunk.com/
+ * Version:           	1.0
+ * Description:       	AI Site Builder: Effortlessly create stunning, user-friendly WordPress websites in minutes.
+ * Text Domain:       	ai-site-builder
  *
- * @package           create-block
+ * @package           AISB
  */
 
 //  Exit if accessed directly.
