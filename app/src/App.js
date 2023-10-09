@@ -5,7 +5,6 @@ import BuilderIcon from './template/buildericon';
 import AiBuilder from './template/aibuilder';
 import { getQueryArg } from '@wordpress/url';
 import Dashboard from './template/dashboard';
-import AiGpt from './gpt/aigpt';
 
 export default function App() {
 
@@ -26,10 +25,6 @@ export default function App() {
     if(getQueryArg( currentUrl,'template' ) ==='step'){
       setpageChange(true);
      } 
-    //if(getQueryArg( currentUrl,'template' ) ==='aisb'){
-
-    
-    // }
     else{
       setpageChange(false);
     }
@@ -41,22 +36,20 @@ export default function App() {
       <div className="App">
    
    {pageChange && <div className="aisb-app-wrap">
+
+    
             <Header/>
         <div className='heading'>
         <h1 >Select Template to Build Your Website ! </h1>
         </div>
         <BuilderIcon builderclick = {(builder_rs)=>builderHide(builder_rs)}/>
+
+
+
         <AiBuilder builder = {builder} />
         </div> }
 
         {pageChange===false && <Dashboard />}
-
-
-      {/* { (getQueryArg( currentUrl,'template' ) ==='aisb') && <div className="aigpt" style={{margin:'10%'}}>
-             <AiGpt/>
-      </div> } */}
-       
-   
       </div>
     );
   }

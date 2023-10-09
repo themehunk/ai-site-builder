@@ -38,9 +38,9 @@ return( <div className='aisb-site-build-wrap'>
                 </div>
                     </FlexItem>
 
-                    <FlexItem>  <div className="header-text">
-            <Upgrade/>
-            </div></FlexItem>
+                    <FlexItem>  
+                        <div className="header-text"><Upgrade/></div>
+                 </FlexItem>
                 </Flex>
             </div>
             <div className='aisb-site-main'>
