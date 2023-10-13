@@ -141,7 +141,7 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
                 'ajaxurl' => admin_url( 'admin-ajax.php' ),
                 'baseurl' => site_url( '/' ),
                 'pluginpath'=>AI_SITE_BUILDER_PLUGIN_URL,
-                'upgrade'=> esc_url('https://themehunk.com')           
+                'upgrade'=> esc_url('https://wpzita.com')           
                  )
         );
 

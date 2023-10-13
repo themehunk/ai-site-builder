@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       	AI Site Builder
- * Plugin URI: 			https://wpzita.com/ai-site-builder/
+ * Plugin URI: 			https://wpzita.com/
  * Author:           	ThemeHunk
  * Author URI:			https://www.themehunk.com/
  * Version:           	1.0
