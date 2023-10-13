@@ -1,4 +1,6 @@
 import { useState  } from '@wordpress/element';
+import { FormFileUpload } from '@wordpress/components';
+
 import SkeletonLoader from './skeleton-loader';
 import SidebarCategory from './sidebarcategory';
 import SiteTemplate from './sitetemplate';
@@ -31,10 +33,11 @@ export default function AiBuilder(props) {
      setTemplateData(jdata);
     
     setLoaderl(true);
-    setIframeUrl(jdata.demo_url+'/?hide');
+    setIframeUrl(jdata.demo_url+'/?hide&theme');
     setTimeout(function() {
       frameload();
-    }, 4000);
+
+    }, 3000);
 
 
   } catch (error) {
@@ -44,6 +47,8 @@ export default function AiBuilder(props) {
       }
      
       const frameload =  ()=> {
+      //  sendPostMessage();
+
          setTimeout(function() {
           setLoaderl(false);
           setIframeDisplay({display:"block"});
@@ -61,6 +66,19 @@ export default function AiBuilder(props) {
       const handelDownFotter = () =>{
         setIsHidden(!isHidden);
       }
+
+
+       const sendPostMessage = () => {
+        const iframe = document.getElementById('iframetmpl');      
+          const iframeCallData = {class:'custom-logo',src:'https://zitademo.wpzita.com/physiotherapy/wp-content/uploads/sites/105/2023/06/physiotherapy-32.png',
+          call: 'satrtUploadData',
+      };
+          console.log(iframeCallData);
+      
+              iframe.contentWindow.postMessage(iframeCallData, '*');
+
+      }
+
 
     return (<>
         <div class="aisb-container-main-tmpl">
@@ -86,6 +104,12 @@ export default function AiBuilder(props) {
               {loader && <SkeletonLoader/>}
               
                 <iframe onLoad={frameload} id="iframetmpl" src={iframeurl} height="100%" width="100%" frameborder="0" style={iframeDisplay}></iframe>
+                {/* {<FormFileUpload
+            accept="image/*"
+            onChange={ ( event ) => console.log( event.currentTarget.files ) }
+        >
+            Upload image
+        </FormFileUpload>} */}
               </div>
           </div>}
 

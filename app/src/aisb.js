@@ -1,8 +1,6 @@
 import { Icon, styles } from '@wordpress/icons';
 import { Button } from '@wordpress/components';
 
-console.log(window.location.href);     //yields: "https://stacksnippets.net/js"
-
  function Upgrade(props) {
         const version = 'Version 1.0';
     return (<>{props.btn && <a href={AISB.upgrade} target='_blank'>

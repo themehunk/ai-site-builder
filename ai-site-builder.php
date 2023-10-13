@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       	AI Site Builder
- * Plugin URI: 			https://www.brainstormforce.com
+ * Plugin URI: 			https://wpzita.com/ai-site-builder/
  * Author:           	ThemeHunk
  * Author URI:			https://www.themehunk.com/
  * Version:           	1.0

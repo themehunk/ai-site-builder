@@ -30,7 +30,7 @@ const handelClose = ()=>{
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
     document.body.style.overflow = "auto";
-    modalImg.src = '';
+   // modalImg.src = '';
     urlReset();
     // window.location.reload(); 
 }
