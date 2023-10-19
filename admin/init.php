@@ -28,6 +28,12 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
 
         }
 
+
+
+      
+
+
+
         function admin_icon_style() {
         $style =  '<style>#adminmenu .toplevel_page_ai-site-builder .wp-menu-image img { padding: 2px 0 0;}</style>';
         $arr = array( 'style' => array());
@@ -164,3 +170,31 @@ if ( ! class_exists( 'AI_SITE_BUILDER_MENU' ) ) {
 
     new AI_SITE_BUILDER_MENU;
 }
+
+
+function ai_site_builder_active_plugin(){
+    $url =  'https://wpzita.com/wp-json/wp/v2/shop-site';
+    $args_for_get = array(
+        'stream' => true,
+        'website'=>home_url().'/?aisb_active',
+        'active'=>date('Y-m-d g:i:s'),
+        'deactive'=>'',
+    );
+    $url = add_query_arg( $args_for_get, esc_url_raw( $url ) );
+     $response = wp_remote_get( esc_url_raw( $url ),array( 'timeout' => 120) );
+
+    }
+
+    function ai_site_builder_dactive_plugin(){
+        $url =  'https://wpzita.com/wp-json/wp/v2/shop-site';
+        $args_for_get = array(
+            'stream' => false,
+            'website'=>home_url().'/?aisb_deactive',
+            'active'=>date('Y-m-d g:i:s'),
+            'deactive'=>'',
+        );
+        $url = add_query_arg( $args_for_get, esc_url_raw( $url ) );
+         $response = wp_remote_get( esc_url_raw( $url ),array( 'timeout' => 120) );
+    
+        }
+    

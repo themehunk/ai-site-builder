@@ -32,3 +32,7 @@ require_once(AI_SITE_BUILDER_DIR_PATH . 'core/inc.php');
 require_once(AI_SITE_BUILDER_DIR_PATH . 'app/app.php');
 require_once AI_SITE_BUILDER_DIR_PATH . 'core/class-core.php';
 
+register_activation_hook( __FILE__, 'ai_site_builder_active_plugin');
+register_deactivation_hook( __FILE__, 'ai_site_builder_dactive_plugin');
+
+
