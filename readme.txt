@@ -40,7 +40,7 @@ Just upload the `ai-site-builder.zip` to the `/wp-content/plugins/` directory, a
 == Screenshots ==
 
 == Changelog ==
-= 1.0.0 =
+= 1.0.1 =
 Trustpilot link chnaged.
 
 = 1.0.0 =
