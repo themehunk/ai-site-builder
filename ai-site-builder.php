@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name:       	AI Site Builder
- * Plugin URI: 			https://wpzita.com/
+ * Plugin URI: 		https://wpzita.com/
  * Author:           	ThemeHunk
- * Author URI:			https://www.themehunk.com/
- * Version:           	1.0
+ * Author URI:		https://www.themehunk.com/
+ * Version:           	1.0.1
  * Description:       	AI Site Builder: Effortlessly create stunning, user-friendly WordPress websites in minutes.
  * Text Domain:       	ai-site-builder
  *
