@@ -3,8 +3,8 @@ Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: ai site builder, site builder, zita site builder, wp website builder
 Requires PHP: 7.4
-Tested up to: 6.3
-Stable tag: 1.0
+Tested up to: 6.4
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,9 @@ Just upload the `ai-site-builder.zip` to the `/wp-content/plugins/` directory, a
 == Screenshots ==
 
 == Changelog ==
+= 1.0.0 =
+Trustpilot link chnaged.
+
 = 1.0.0 =
 Initial release
 
